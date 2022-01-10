@@ -23,7 +23,7 @@
 
 ---
 
-### Prewiew
+### Preview
 
 <img align="left" alt="Prewiew" width="250px" src="./IMG/prewiew.png"/>
 
