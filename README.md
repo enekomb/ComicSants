@@ -25,5 +25,5 @@
 
 ### Preview
 
-<img align="left" alt="Prewiew" width="250px" src="./IMG/prewiew.png"/>
+<img align="left" alt="Preview" width="250px" src="./IMG/preview.png"/>
 
