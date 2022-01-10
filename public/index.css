@@ -1,0 +1,77 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-image: url("https://th.bing.com/th/id/R.fbebeaa3af18f2425b4513ab8ef8f338?rik=T2%2f4kPHOVdPR5Q&riu=http%3a%2f%2fgetdrawings.com%2fimages%2fdc-comic-drawing-14.jpg&ehk=G0eYYuxrbZDw8XpEYUP1EGCZyqnGZTfrTcufiz6nv5A%3d&risl=&pid=ImgRaw&r=0");
+  background-size: cover;
+}
+.formas{
+  display:flex;
+}
+
+.detras{
+  width: 40vw;
+  height: 60vh;
+  opacity: 50%;
+  background: white;
+  margin-top: 180px;
+  margin-left: 30vw;
+  margin-right: 30vw;
+  box-shadow: 7px 13px 37px #000;
+  border-top: 4px solid #017bab;
+  border-radius: 10px;
+  position: absolute;
+  align-items: center;
+}
+
+.form-login {
+  width: 40vw;
+  height: 60vh;
+  opacity: 90%;
+  margin-top: 180px;
+  margin-left: 30vw;
+  margin-right: 30vw;
+  padding: 20px 30px;
+  flex-wrap: wrap;
+  align-items: space-around;
+}
+
+.form-login h5 {
+  margin: 15px;
+  text-align: center;
+  height: 40px;
+  margin-bottom: 10vh;
+  font-size: 6vw;
+  font-family: 'Bangers', cursive;
+  color: white;
+  text-shadow: 7px 13px 37px #000;
+}
+
+.controls {
+  width: 100%;
+  border: 1px solid #017bab;
+  margin-bottom: 15px;
+  padding: 11px 10px;
+  background: #252323;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  font-family: 'Domine', serif;
+  
+}
+  
+.buttons {
+  width: 100%;
+  height: 40px;
+  background: #017bab;
+  border: none;
+  color: white;
+  margin-top: 25px;
+  font-family: 'Changa', sans-serif;
+  font-size: 20px;
+}
+
+
+  

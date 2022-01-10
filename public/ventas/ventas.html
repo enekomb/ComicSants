@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="ventas.css" />
+        <link rel="stylesheet" type="text/css" href="../nav.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bangers&family=Changa:wght@800&family=Domine:wght@700&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>Ventas</title>
+    </head>
+    <body>
+        <nav>
+            <a href="http://localhost:3000/home/home.html">Home</a>
+            <a href="http://localhost:3000/editar/editar.html">Gestión</a>
+            <a href="http://localhost:3000/stock/stock.html">Catálogo</a>
+            <a href="http://localhost:3000/ventas/ventas.html">Ventas</a>
+            <a href="http://localhost:3000/informes/informes.html">Informes</a>
+            <div class="animation start-ventas"></div>
+        </nav>
+        <div class="tarjetas">
+            <div class="formulario">
+                <form>
+                    <div>
+                        <label class="custom-select" for="styledSelect1">
+                            <select name="cliente">
+                                <option selected disabled>DNI</option>
+                            </select>
+                        </label>
+                        <input
+                            class="controls"
+                            type="number"
+                            id="numfac"
+                            placeholder="Numero de factura"
+                            min="1"
+                        />
+                    </div>
+                    <label class="custom-select" for="styledSelect1">
+                        <select name="snac">
+                            <option selected disabled>Snacks</option>
+                        </select>
+                    </label>
+                    <input
+                        class="controls"
+                        type="number"
+                        id="numsnac"
+                        min="1"
+                        placeholder="Cantidad de snacks"
+                    />
+                    <button class="añadirsnac">AÑADIR SNAC</button>
+                    <label class="custom-select" for="styledSelect1">
+                        <select name="comic">
+                            <option selected disabled>Comics</option>
+                        </select>
+                    </label>
+                    <input
+                        class="controls"
+                        type="number"
+                        id="numcomic"
+                        placeholder="Cantidad de comics"
+                    />
+                    <button class="añadircomic">AÑADIR COMIC</button>
+                    <label class="custom-select" for="styledSelect1">
+                        <select name="cartas">
+                            <option selected disabled>Cartas</option>
+                        </select>
+                    </label>
+                    <input
+                        class="controls"
+                        type="number"
+                        id="numcartas"
+                        min="1"
+                        placeholder="Cantidad de cartas"
+                    />
+                    <button class="añadircarta">AÑADIR CARTAS</button>
+                    <label class="custom-select" for="styledSelect1">
+                        <select name="mesas">
+                            <option selected disabled>Juegos de mesa</option>
+                        </select>
+                    </label>
+                    <input
+                        class="controls"
+                        type="number"
+                        id="nummesas"
+                        min="1"
+                        placeholder="Cantidad de juegos de mesa"
+                    />
+                    <button class="añadirmesa">AÑADIR JUEGO DE MESA</button>
+                    <!-- 
+                    <label class="custom-select" for="styledSelect1">
+                        <select name="cliente2">
+                            <option selected disabled>DNI</option>
+                        </select>
+                    </label>
+                    <button class="llamar">LLAMAR CLIENTE</button> -->
+                </form>
+            </div>
+            <div></div>
+            <div class="formulario" id="pedido">
+                <button class="anadirpedido" id="uno">ENVIAR PEDIDO</button>
+
+                <div></div>
+            </div>
+        </div>
+
+        <div class="tablaprecios"></div>
+        <script src="ventass.js"></script>
+    </body>
+</html>

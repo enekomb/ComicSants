@@ -1,0 +1,32 @@
+
+
+.tarjetas {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+table {
+    width: 50%;
+    border: 1px solid #000;
+}
+
+th,
+td {
+    width: 25%;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #000;
+}
+
+.orden{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 450px;
+    margin-top: 50px
+}
+
+.queso{
+    margin-left: -150px;
+}
