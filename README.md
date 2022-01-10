@@ -25,5 +25,5 @@
 
 ### Prewiew
 
-<img align="left" alt="Prewiew" width="250px" src="./atender/prewiew.png"/>
+<img align="left" alt="Prewiew" width="250px" src="./public/atender/prewiew.png"/>
 
