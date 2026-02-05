@@ -28,11 +28,11 @@ router.post("/", function (request, response) {
                 table_name, table_quantity, table_price,
                 total_price
             ) VALUES (
-                @client_id, @snackName, @snackQuantity, @snackPrice,
-                @comicName, @comicQuantity, @comicPrice,
-                @cardName, @cardQuantity, @cardPrice,
-                @tableName, @tableQuantity, @tablePrice,
-                @total_price
+                ?, ?, ?, ?,
+                ?, ?, ?,
+                ?, ?, ?,
+                ?, ?, ?,
+                ?
             )
         `);
         
@@ -41,7 +41,22 @@ router.post("/", function (request, response) {
         
         const insertMany = db.transaction((salesArray) => {
             for (const sale of salesArray) {
-                stmt.run(sale);
+                stmt.run(
+                    sale.client_id || null,
+                    sale.snackName || null,
+                    sale.snackQuantity || null,
+                    sale.snackPrice || null,
+                    sale.comicName || null,
+                    sale.comicQuantity || null,
+                    sale.comicPrice || null,
+                    sale.cardName || null,
+                    sale.cardQuantity || null,
+                    sale.cardPrice || null,
+                    sale.tableName || null,
+                    sale.tableQuantity || null,
+                    sale.tablePrice || null,
+                    sale.total_price || 0
+                );
             }
         });
         
