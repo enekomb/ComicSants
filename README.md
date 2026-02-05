@@ -143,9 +143,10 @@ For detailed deployment instructions on free hosting platforms (Railway, Render,
 ## 🔒 Security Notes
 
 - Change the default admin password immediately after setup
-- The application currently stores passwords in plain text - consider implementing bcrypt for production
+- Passwords are securely hashed using bcrypt with 10 salt rounds
 - Set up HTTPS in production environments
 - Regular backups of the SQLite database are recommended
+- Consider implementing session management or JWT for production authentication
 
 ## 🛠️ Development
 

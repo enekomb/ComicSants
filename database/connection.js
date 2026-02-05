@@ -12,9 +12,11 @@ const SCHEMA_PATH = path.join(__dirname, 'schema.sql');
  */
 function initializeDatabase() {
     // Create or open database with verbose logging only in development
-    const db = new Database(DB_PATH, { 
-        verbose: process.env.NODE_ENV === 'development' ? console.log : null 
-    });
+    const verboseLogger = process.env.NODE_ENV === 'development' 
+        ? (msg) => console.log('[SQL]', msg) 
+        : null;
+    
+    const db = new Database(DB_PATH, { verbose: verboseLogger });
     
     // Enable foreign keys
     db.pragma('foreign_keys = ON');
@@ -37,9 +39,11 @@ function getDatabase() {
         return initializeDatabase();
     }
     
-    const db = new Database(DB_PATH, { 
-        verbose: process.env.NODE_ENV === 'development' ? console.log : null 
-    });
+    const verboseLogger = process.env.NODE_ENV === 'development' 
+        ? (msg) => console.log('[SQL]', msg) 
+        : null;
+    
+    const db = new Database(DB_PATH, { verbose: verboseLogger });
     db.pragma('foreign_keys = ON');
     
     return db;

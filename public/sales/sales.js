@@ -290,7 +290,7 @@ document
             })
             .then(function (res) {
                 document.querySelector("select[name='client2']").innerHTML =
-                    "<option selected disabled>Comics</option>";
+                    "<option selected disabled>Client</option>";
                 for (let i = 0; i < res.length; i++) {
                     document.querySelector(
                         "select[name='client2']"

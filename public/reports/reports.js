@@ -211,7 +211,7 @@ fetch("/sales/sale/arraytable")
             var data = google.visualization.arrayToDataTable(array);
 
             var options = {
-                title: "Snack sales",
+                title: "Board game sales",
             };
 
             var chart = new google.visualization.PieChart(
@@ -248,7 +248,7 @@ fetch("/sales/sale/arraycards")
             var data = google.visualization.arrayToDataTable(array);
 
             var options = {
-                title: "Snack sales",
+                title: "Card sales",
             };
 
             var chart = new google.visualization.PieChart(

@@ -31,6 +31,8 @@ router.post("/", function (request, response) {
 });
 
 // PUT - Update a snack
+// Note: Uses 'name' as identifier (consistent with original implementation)
+// If you need to change the name, consider using 'id' as identifier instead
 router.put("/", function (request, response) {
     try {
         const db = request.app.locals.db;
