@@ -24,7 +24,7 @@ router.post("/", function (request, response) {
             name: request.body.name,
             price: request.body.price,
             copies: request.body.copies,
-            genre: request.body.category || request.body.genre, // Support both 'category' and 'genre'
+            genre: request.body.category ?? request.body.genre, // Support both 'category' and 'genre'
             img: request.body.img
         };
         
@@ -54,7 +54,7 @@ router.put("/", function (request, response) {
             name: request.body.name,
             price: request.body.price,
             copies: request.body.copies,
-            genre: request.body.category || request.body.genre, // Support both 'category' and 'genre'
+            genre: request.body.category ?? request.body.genre, // Support both 'category' and 'genre'
             img: request.body.img
         };
         
