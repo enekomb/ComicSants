@@ -171,13 +171,22 @@ The SQLite database will be automatically created on first run. To initialize wi
 
 1. **Create an admin user** (Important for first login)
    ```bash
-   # Connect to SQLite
+   # Recommended: Use the initialization script
+   npm run init-db
+   
+   # This creates an admin user with:
+   # Username: admin
+   # Password: admin123 (securely hashed with bcrypt)
+   ```
+   
+   **Alternative manual method**:
+   ```bash
+   # Generate a bcrypt hash for your password
+   node -e "console.log(require('bcrypt').hashSync('yourpassword', 10))"
+   
+   # Copy the hash output, then:
    sqlite3 database/comicsants.db
-   
-   # Insert admin user
-   INSERT INTO admins (username, password) VALUES ('admin', 'admin123');
-   
-   # Exit SQLite
+   INSERT INTO admins (username, password) VALUES ('admin', '<paste-hash-here>');
    .exit
    ```
 

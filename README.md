@@ -57,17 +57,20 @@ Built with Node.js, Express, and SQLite, this application serves as a Point of S
 3.  **Initialize Database:**
     The SQLite database will be automatically created on first run. To create an admin user for login:
     ```bash
-    # Install SQLite CLI if you don't have it
-    # On Ubuntu/Debian: sudo apt install sqlite3
-    # On macOS: brew install sqlite3
+    npm run init-db
+    ```
+    This creates an admin user with:
+    - **Username**: admin
+    - **Password**: admin123 (securely hashed with bcrypt)
     
-    # Connect to database
+    **Alternative manual setup** (not recommended):
+    ```bash
+    # If you need to create admin manually with custom credentials
+    # First hash your password using bcrypt, then insert
+    node -e "console.log(require('bcrypt').hashSync('yourpassword', 10))"
+    # Copy the hash, then:
     sqlite3 database/comicsants.db
-    
-    # Create admin user (run this in SQLite prompt)
-    INSERT INTO admins (username, password) VALUES ('admin', 'admin123');
-    
-    # Exit SQLite
+    INSERT INTO admins (username, password) VALUES ('admin', '<paste-hash-here>');
     .exit
     ```
 

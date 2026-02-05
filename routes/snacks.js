@@ -31,8 +31,9 @@ router.post("/", function (request, response) {
 });
 
 // PUT - Update a snack
-// Note: Uses 'name' as identifier (consistent with original implementation)
-// If you need to change the name, consider using 'id' as identifier instead
+// Note: Uses 'name' as the unique identifier (consistent with original MongoDB implementation)
+// Limitation: The name field itself cannot be changed with this endpoint
+// If you need to support name changes, consider modifying to use 'id' as the identifier
 router.put("/", function (request, response) {
     try {
         const db = request.app.locals.db;

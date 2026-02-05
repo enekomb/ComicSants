@@ -111,10 +111,14 @@ sudo apt install nginx
 ### Change Admin Password
 1. Login with default credentials
 2. Use the management interface to update admin password
-3. Or connect to database directly:
+3. Or change it programmatically:
 ```bash
+# Generate a bcrypt hash for your new password
+node -e "const bcrypt = require('bcrypt'); const hash = bcrypt.hashSync('newpassword', 10); console.log('Run this in SQLite:'); console.log(\`UPDATE admins SET password = '\${hash}' WHERE username = 'admin';\`);"
+
+# Then use the output in SQLite:
 sqlite3 database/comicsants.db
-UPDATE admins SET password = 'newpassword' WHERE username = 'admin';
+# Paste the UPDATE command from above
 .exit
 ```
 

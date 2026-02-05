@@ -189,7 +189,7 @@ The UI and functionality remain identical from the user's perspective.
 
 1. **Concurrency**: SQLite may have issues with high concurrent writes (>50 simultaneous users)
 2. **Scalability**: For production with many users, consider PostgreSQL
-3. **Plain Text Passwords**: Authentication still uses plain text (bcrypt recommended for production)
+3. **Session Management**: No session/JWT tokens implemented yet (consider adding for production)
 
 ## Setup Instructions
 
