@@ -3,15 +3,15 @@ document
     .querySelector("#insertarco")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let name = document.querySelector("input[name='nombre']").value;
-        let author = document.querySelector("input[name='escritor']").value;
-        let publisher = document.querySelector("input[name='editorial']").value;
-        let price = document.querySelector("input[name='precio']").value;
-        let pages = document.querySelector("input[name='paginas']").value;
+        let name = document.querySelector("input[name='name']").value;
+        let author = document.querySelector("input[name='author']").value;
+        let publisher = document.querySelector("input[name='publisher']").value;
+        let price = document.querySelector("input[name='price']").value;
+        let pages = document.querySelector("input[name='pages']").value;
         let copies = document.querySelector(
             "input[name='copies']"
         ).value;
-        let genre = document.querySelector("input[name='genero']").value;
+        let genre = document.querySelector("input[name='genre']").value;
         let isbn = document.querySelector("input[name='isbn']").value;
         let img = document.querySelector("input[name='img']").value;
 
@@ -47,17 +47,17 @@ document
     .querySelector("#modificarco")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let name = document.querySelector("input[name='nombre3']").value;
-        let author = document.querySelector("input[name='escritor3']").value;
+        let name = document.querySelector("input[name='name3']").value;
+        let author = document.querySelector("input[name='author3']").value;
         let publisher = document.querySelector(
-            "input[name='editorial3']"
+            "input[name='publisher3']"
         ).value;
-        let price = document.querySelector("input[name='precio3']").value;
-        let pages = document.querySelector("input[name='paginas3']").value;
+        let price = document.querySelector("input[name='price3']").value;
+        let pages = document.querySelector("input[name='pages3']").value;
         let copies = document.querySelector(
             "input[name='copies3']"
         ).value;
-        let genre = document.querySelector("input[name='genero3']").value;
+        let genre = document.querySelector("input[name='genre3']").value;
         let isbn = document.querySelector("input[name='isbn3']").value;
         let img = document.querySelector("input[name='img3']").value;
 
@@ -118,12 +118,12 @@ document
     .querySelector("#insertarca")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let name = document.querySelector("input[name='nombrecar']").value;
-        let price = document.querySelector("input[name='preciocar']").value;
+        let name = document.querySelector("input[name='namecar']").value;
+        let price = document.querySelector("input[name='pricecar']").value;
         let copies = document.querySelector(
             "input[name='copiescar']"
         ).value;
-        let genre = document.querySelector("input[name='generocar']").value;
+        let genre = document.querySelector("input[name='genrecar']").value;
         let ean = document.querySelector("input[name='eancar']").value;
         let img = document.querySelector("input[name='imgcar']").value;
 
@@ -156,12 +156,12 @@ document
     .querySelector("#modificarca")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let name = document.querySelector("input[name='nombrecar3']").value;
-        let price = document.querySelector("input[name='preciocar3']").value;
+        let name = document.querySelector("input[name='namecar3']").value;
+        let price = document.querySelector("input[name='pricecar3']").value;
         let copies = document.querySelector(
-            "input[name='copiescar']"
+            "input[name='copiescar3']"
         ).value;
-        let genre = document.querySelector("input[name='generocar3']").value;
+        let genre = document.querySelector("input[name='genrecar3']").value;
         let ean = document.querySelector("input[name='eancar3']").value;
         let img = document.querySelector("input[name='imgcar3']").value;
 
@@ -220,12 +220,12 @@ document
     .querySelector("#insertarmes")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let name = document.querySelector("input[name='nombremes']").value;
-        let price = document.querySelector("input[name='preciomes']").value;
+        let name = document.querySelector("input[name='namemes']").value;
+        let price = document.querySelector("input[name='pricemes']").value;
         let copies = document.querySelector(
-            "input[name='ejemplarmes']"
+            "input[name='copiesmes']"
         ).value;
-        let genre = document.querySelector("input[name='generomes']").value;
+        let genre = document.querySelector("input[name='genremes']").value;
         let ean = document.querySelector("input[name='eanmes']").value;
         let img = document.querySelector("input[name='imgmes']").value;
 
@@ -259,12 +259,12 @@ document
     .querySelector("#modificarmes")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let name = document.querySelector("input[name='nombremes3']").value;
-        let price = document.querySelector("input[name='preciomes3']").value;
+        let name = document.querySelector("input[name='namemes3']").value;
+        let price = document.querySelector("input[name='pricemes3']").value;
         let copies = document.querySelector(
-            "input[name='ejemplarmes3']"
+            "input[name='copiesmes3']"
         ).value;
-        let genre = document.querySelector("input[name='generomes3']").value;
+        let genre = document.querySelector("input[name='genremes3']").value;
         let ean = document.querySelector("input[name='eanmes3']").value;
         let img = document.querySelector("input[name='imgmes3']").value;
 
@@ -323,15 +323,15 @@ document
     .querySelector("#insertarsna")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let name = document.querySelector("input[name='nombresna']").value;
+        let name = document.querySelector("input[name='namesna']").value;
         let category = document.querySelector(
-            "input[name='categoriasna']"
+            "input[name='categorysna']"
         ).value;
         let copies = document.querySelector(
             "input[name='copiessna']"
         ).value;
         let img = document.querySelector("input[name='imgsna']").value;
-        let price = document.querySelector("input[name='preciosna']").value;
+        let price = document.querySelector("input[name='pricesna']").value;
 
         let snack = {
             name: name,
@@ -361,15 +361,15 @@ document
     .querySelector("#modificarsna")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let name = document.querySelector("input[name='nombresna3']").value;
+        let name = document.querySelector("input[name='namesna3']").value;
         let category = document.querySelector(
-            "input[name='categoriasna3']"
+            "input[name='categorysna3']"
         ).value;
         let copies = document.querySelector(
             "input[name='copiessna3']"
         ).value;
         let img = document.querySelector("input[name='imgsna3']").value;
-        let price = document.querySelector("input[name='preciosna3']").value;
+        let price = document.querySelector("input[name='pricesna3']").value;
 
         let snack = {
             name: name,
@@ -399,7 +399,7 @@ document
     .querySelector("#eliminarsna")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let name = document.querySelector("input[name='nombresna2']").value;
+        let name = document.querySelector("input[name='namesna2']").value;
         let snack = {
             name: name,
         };

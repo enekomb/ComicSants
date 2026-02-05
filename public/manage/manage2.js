@@ -18,13 +18,13 @@ document
     .querySelector("#post")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let name = document.querySelector("input[name='nombrec']").value;
-        let surname = document.querySelector("input[name='apellido']").value;
+        let name = document.querySelector("input[name='name']").value;
+        let surname = document.querySelector("input[name='surname']").value;
         let dni = document.querySelector("input[name='dni']").value;
-        let postalCode = document.querySelector("input[name='cp']").value;
-        let address = document.querySelector("input[name='direccion']").value;
-        let email = document.querySelector("input[name='correo']" ).value;
-        let phone = document.querySelector("input[name='telefono']").value;
+        let postalCode = document.querySelector("input[name='postalcode']").value;
+        let address = document.querySelector("input[name='address']").value;
+        let email = document.querySelector("input[name='email']" ).value;
+        let phone = document.querySelector("input[name='phone']").value;
 
         let client = {
             name: name,
@@ -55,12 +55,12 @@ document
     .addEventListener("click", function (event) {
         event.preventDefault();
         let dni = document.querySelector("select[name='mdni']").value;
-        let name = document.querySelector("input[name='nombrem']").value;
-        let surname = document.querySelector("input[name='apellido']").value;
-        let postalCode = document.querySelector("input[name='cp']").value;
-        let address = document.querySelector("input[name='direccion']").value;
-        let email = document.querySelector("input[name='correo']").value;
-        let phone = document.querySelector("input[name='telefono']").value;
+        let name = document.querySelector("input[name='name']").value;
+        let surname = document.querySelector("input[name='surname']").value;
+        let postalCode = document.querySelector("input[name='postalcode']").value;
+        let address = document.querySelector("input[name='address']").value;
+        let email = document.querySelector("input[name='email']").value;
+        let phone = document.querySelector("input[name='phone']").value;
       
 
         let client = {
