@@ -1,4 +1,6 @@
 const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
 const { getDatabase } = require("./database/connection");
 
 // Import routes
@@ -23,6 +25,12 @@ try {
     console.error("Failed to connect to database:", err);
     process.exit(1);
 }
+
+// Security Middleware
+app.use(helmet({
+    contentSecurityPolicy: false, // Disable CSP to allow inline scripts and Google Charts
+}));
+app.use(cors());
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));

@@ -8,13 +8,20 @@
     "init-db": "node scripts/init-db.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["pos", "inventory", "comics", "hobby-store"],
+  "keywords": [
+    "pos",
+    "inventory",
+    "comics",
+    "hobby-store"
+  ],
   "author": "ComicSants Team",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "better-sqlite3": "^12.6.2",
+    "cors": "^2.8.6",
     "express": "^4.17.1",
+    "helmet": "^8.1.0",
     "nodemon": "^2.0.15"
   },
   "description": "ComicSants - A comprehensive internal management application for hobby stores",
