@@ -63,10 +63,13 @@ Built with Node.js, Express, and SQLite, this application serves as a Point of S
     - **Username**: admin
     - **Password**: admin123 (securely hashed with bcrypt)
     
-    **Alternative manual setup** (not recommended):
+    **Alternative manual setup** (for advanced users only):
     ```bash
-    # If you need to create admin manually with custom credentials
-    # First hash your password using bcrypt, then insert
+    # Requires sqlite3 CLI tool to be installed
+    # On Ubuntu/Debian: sudo apt install sqlite3
+    # On macOS: brew install sqlite3
+    
+    # Generate bcrypt hash for your password
     node -e "console.log(require('bcrypt').hashSync('yourpassword', 10))"
     # Copy the hash, then:
     sqlite3 database/comicsants.db

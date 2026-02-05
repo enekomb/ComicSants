@@ -154,7 +154,7 @@ npm run dev
 
 1. **Security**: Change default admin password immediately
 2. **Backups**: Regularly backup `database/comicsants.db`
-3. **Production**: Consider bcrypt for password hashing
+3. **Production**: Bcrypt password hashing is already implemented
 4. **Scaling**: For >50 concurrent users, consider PostgreSQL
 5. **HTTPS**: Always use HTTPS in production
 
