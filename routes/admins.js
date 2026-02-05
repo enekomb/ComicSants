@@ -5,14 +5,14 @@ const router = express.Router();
 //     let db = request.app.locals.db;
 //     db.collection("admin")
 //         .find()
-//         .toArray(function (err, datos) {
+//         .toArray(function (err, data) {
 //             if (err != undefined) {
 //                 console.log(err);
-//                 alert("Usuario o Contraseña erronea. Vuelva a intentarlo.");
-//                 response.send({ mensaje: "error: " + err });
+//                 alert("Incorrect user or password. Please try again.");
+//                 response.send({ message: "error: " + err });
 //             } else {
-//                 // console.log("todo correcto");
-//                 response.send({msg: "todo correcto"});
+//                 // console.log("everything correct");
+//                 response.send({msg: "everything correct"});
 //                 // window.location.href = "http://localhost:3000/home/home.html";
 //             }
 //         });
@@ -20,30 +20,30 @@ const router = express.Router();
 
 router.post("/", function (request, response) {
     let db = request.app.locals.db;
-    let nombreUsuario = request.body.usuario;
-    let contraseñaUsuario = request.body.contraseña;
+    let username = request.body.user;
+    let userPassword = request.body.password;
 
     db.collection("admin")
-        .find({usuario: nombreUsuario})
-        .toArray(function (err, arrayUsuario) {
+        .find({user: username})
+        .toArray(function (err, userArray) {
             if (err != undefined) {
                 // console.log(err);
-                response.send({ mensaje: "error: " + err });
+                response.send({ message: "error: " + err });
                
             } else {
-                if (arrayUsuario.length > 0) {
-                    if (contraseñaUsuario == arrayUsuario[0].contraseña) {
-                        response.send({ mensaje: "Logueado correctamente" });
+                if (userArray.length > 0) {
+                    if (userPassword == userArray[0].password) {
+                        response.send({ message: "Logged in successfully" });
                 
                     } else {
-                        response.send({ mensaje: "Contraseña incorrecta" });
+                        response.send({ message: "Incorrect password" });
                     }
                 } else {
-                    response.send({ mensaje: "El usuario no existe" });
+                    response.send({ message: "User does not exist" });
                 }
                 // if()
-                // console.log("todo correcto");
-                // response.send({msg: "todo correcto"});
+                // console.log("everything correct");
+                // response.send({msg: "everything correct"});
                 // // window.location.href = "http://localhost:3000/home/home.html";
             }
         });

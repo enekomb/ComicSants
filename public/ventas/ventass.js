@@ -1,7 +1,7 @@
-let carrito = [];
-let imprimir = document.querySelector("#pedido div");
-//ESTO SERÍA PARA HACER UNA TABLA
-// fetch("/ventas/venta")
+let cart = [];
+let printElement = document.querySelector("#pedido div");
+//THIS WOULD BE TO CREATE A TABLE
+// fetch("/sales/sale")
 //     .then(function (response) {
 //         console.log(response);
 //         return response.json();
@@ -10,14 +10,14 @@ let imprimir = document.querySelector("#pedido div");
 //         document.querySelector("div").innerHTML = "";
 //         for (let i = 0; i < res.length; i++) {
 //             document.querySelector("div").innerHTML += `
-//             <p="${i}">Cliente:${res[i].cliente}</p>
-//             <p="${i}">Producto:${res[i].producto}</p>
-//             <p="${i}">Cantidad:${res[i].cantidad}</p>
-//             <p="${i}">Precio:${res[i].precio}</p>`;
+//             <p="${i}">Client:${res[i].client}</p>
+//             <p="${i}">Product:${res[i].product}</p>
+//             <p="${i}">Quantity:${res[i].quantity}</p>
+//             <p="${i}">Price:${res[i].price}</p>`;
 //         }
 //     });
 
-// ESTO SERÍA PARA ELEGIR LO QUE VA A COMPRAR EL CLIENTE
+// THIS WOULD BE TO CHOOSE WHAT THE CLIENT IS GOING TO BUY
 
 fetch("/snacks/snack")
     .then(function (response) {
@@ -25,12 +25,12 @@ fetch("/snacks/snack")
         return response.json();
     })
     .then(function (res) {
-        document.querySelector("select[name='snac']").innerHTML =
+        document.querySelector("select[name='snack']").innerHTML =
             "<option selected disabled>Snacks</option>";
         for (let i = 0; i < res.length; i++) {
             document.querySelector(
-                "select[name='snac']"
-            ).innerHTML += `<option value="${res[i].precio}--${res[i].nombre}">${res[i].nombre}</option>`;
+                "select[name='snack']"
+            ).innerHTML += `<option value="${res[i].price}--${res[i].name}">${res[i].name}</option>`;
         }
     });
 // .then(function (res) {
@@ -44,53 +44,53 @@ fetch("/snacks/snack")
 //       </tr>
 
 //       <tr>
-//       <td>${res[i].nombre}</td>
-//       <td>${res[i].precio}</td>`;
+//       <td>${res[i].name}</td>
+//       <td>${res[i].price}</td>`;
 //     }
 // });
 
-fetch("/clientes/cliente")
+fetch("/clients/client")
     .then(function (response) {
         console.log(response);
         return response.json();
     })
     .then(function (res) {
-        document.querySelector("select[name='cliente']").innerHTML =
+        document.querySelector("select[name='client']").innerHTML =
             "<option selected disabled>DNI</option>";
         for (let i = 0; i < res.length; i++) {
             document.querySelector(
-                "select[name='cliente']"
+                "select[name='client']"
             ).innerHTML += `<option>${res[i].dni}</option>`;
         }
     });
 
-fetch("/cartas/carta")
+fetch("/cards/card")
     .then(function (response) {
         console.log(response);
         return response.json();
     })
     .then(function (res) {
-        document.querySelector("select[name='cartas']").innerHTML =
-            "<option selected disabled>Cartas</option>";
+        document.querySelector("select[name='cards']").innerHTML =
+            "<option selected disabled>Cards</option>";
         for (let i = 0; i < res.length; i++) {
             document.querySelector(
-                "select[name='cartas']"
-            ).innerHTML += `<option value="${res[i].precio}--${res[i].nombre}">${res[i].nombre}</option>`;
+                "select[name='cards']"
+            ).innerHTML += `<option value="${res[i].price}--${res[i].name}">${res[i].name}</option>`;
         }
     });
 
-fetch("/mesas/mesa")
+fetch("/tables/table")
     .then(function (response) {
         console.log(response);
         return response.json();
     })
     .then(function (res) {
-        document.querySelector("select[name='mesas']").innerHTML =
-            "<option selected disabled>Juegos de mesa</option>";
+        document.querySelector("select[name='tables']").innerHTML =
+            "<option selected disabled>Board games</option>";
         for (let i = 0; i < res.length; i++) {
             document.querySelector(
-                "select[name='mesas']"
-            ).innerHTML += `<option value="${res[i].precio}--${res[i].nombre}">${res[i].nombre}</option>`;
+                "select[name='tables']"
+            ).innerHTML += `<option value="${res[i].price}--${res[i].name}">${res[i].name}</option>`;
         }
     });
 
@@ -105,237 +105,196 @@ fetch("/comics/comic")
         for (let i = 0; i < res.length; i++) {
             document.querySelector(
                 "select[name='comic']"
-            ).innerHTML += `<option value="${res[i].precio}--${res[i].nombre}">${res[i].nombre}</option>`;
+            ).innerHTML += `<option value="${res[i].price}--${res[i].name}">${res[i].name}</option>`;
         }
     });
 
 document
-    .querySelector("body .añadirsnac")
+    .querySelector("body .addsnack")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        //SELECCION DE SNACK
-        let selectSnac = document
-            .querySelector("select[name='snac']")
+        //SNACK SELECTION
+        let selectSnack = document
+            .querySelector("select[name='snack']")
             .value.split("--");
-        let precioSnac = selectSnac[0];
-        let nombreSnac = selectSnac[1];
+        let snackPrice = selectSnack[0];
+        let snackName = selectSnack[1];
 
-        //CREACION DE LA FACTURA
+        //INVOICE CREATION
 
         document.querySelector("#pedido div").innerHTML += `<p><p>
-          FACTURA: ${document.querySelector("input[id='numfac']").value}<br>
-          DNI del cliente: ${
-              document.querySelector("select[name='cliente']").value
+          INVOICE: ${document.querySelector("input[id='invoicenumber']").value}<br>
+          Client DNI: ${
+              document.querySelector("select[name='client']").value
           }<br>
-          Pedido:<br>
+          Order:<br>
           </p>
-          Producto:<br>
-          SNACKS: ${nombreSnac}<br>
-           Precio: ${precioSnac}€<br> 
-          Cantidad: ${document.querySelector("input[id='numsnac']").value} <br>
+          Product:<br>
+          SNACKS: ${snackName}<br>
+           Price: ${snackPrice}€<br> 
+          Quantity: ${document.querySelector("input[id='snacknumber']").value} <br>
           Total: ${
-              precioSnac * document.querySelector("input[id='numsnac']").value
+              snackPrice * document.querySelector("input[id='snacknumber']").value
           }€
         </p> `;
         let obj = {
-            cliente: document.querySelector("select[name='cliente']").value,
-            factura: document.querySelector("input[id='numfac']").value,
-            nombreSnac,
-            precioSnac,
-            cantidadSnac: document.querySelector("input[id='numsnac']").value,
+            client: document.querySelector("select[name='client']").value,
+            invoice: document.querySelector("input[id='invoicenumber']").value,
+            snackName,
+            snackPrice,
+            snackQuantity: document.querySelector("input[id='snacknumber']").value,
             Total:
-                precioSnac *
-                document.querySelector("input[id='numsnac']").value,
+                snackPrice *
+                document.querySelector("input[id='snacknumber']").value,
         };
-        carrito.push(obj);
-        console.log(carrito);
+        cart.push(obj);
+        console.log(cart);
     });
 
 ///// COMICS
 
 document
-    .querySelector("body .añadircomic")
+    .querySelector("body .addcomic")
     .addEventListener("click", function (event) {
         event.preventDefault();
 
-        //SELECCION COMIC
+        //COMIC SELECTION
 
         let selectComic = document
             .querySelector("select[name='comic']")
             .value.split("--");
-        let precioComic = selectComic[0];
-        let nombreComic = selectComic[1];
+        let comicPrice = selectComic[0];
+        let comicName = selectComic[1];
 
-        //CREACION DE LA FACTURA
+        //INVOICE CREATION
 
         document.querySelector("#pedido div").innerHTML += `
         <p>
-          Producto:<br>  
-          COMICS: ${nombreComic}<br>
-           Precio: ${precioComic}€<br>
-          Cantidad: ${document.querySelector("input[id='numcomic']").value}<br>
+          Product:<br>  
+          COMICS: ${comicName}<br>
+           Price: ${comicPrice}€<br>
+          Quantity: ${document.querySelector("input[id='comicnumber']").value}<br>
           Total: ${
-              precioComic * document.querySelector("input[id='numcomic']").value
+              comicPrice * document.querySelector("input[id='comicnumber']").value
           }€
         </p> `;
 
         let obj = {
-            cliente: document.querySelector("select[name='cliente']").value,
-            factura: document.querySelector("input[id='numfac']").value,
-            nombreComic,
-            precioComic,
-            cantidadComic: document.querySelector("input[id='numcomic']").value,
+            client: document.querySelector("select[name='client']").value,
+            invoice: document.querySelector("input[id='invoicenumber']").value,
+            comicName,
+            comicPrice,
+            comicQuantity: document.querySelector("input[id='comicnumber']").value,
             Total:
-                precioComic *
-                document.querySelector("input[id='numcomic']").value,
+                comicPrice *
+                document.querySelector("input[id='comicnumber']").value,
         };
-        carrito.push(obj);
-        console.log(carrito);
+        cart.push(obj);
+        console.log(cart);
     });
 
-//MESAS
+//TABLES
 
 document
-    .querySelector("body .añadirmesa")
+    .querySelector("body .addtable")
     .addEventListener("click", function (event) {
         event.preventDefault();
 
-        //SELECCION DE JUEGOS DE MESA
+        //BOARD GAME SELECTION
 
-        let selectMesa = document
-            .querySelector("select[name='mesas']")
+        let selectTable = document
+            .querySelector("select[name='tables']")
             .value.split("--");
-        let precioMesa = selectMesa[0];
-        let nombreMesa = selectMesa[1];
+        let tablePrice = selectTable[0];
+        let tableName = selectTable[1];
 
-        //CREACION DE LA FACTURA
+        //INVOICE CREATION
 
         document.querySelector("#pedido div").innerHTML += `<p>
-          Producto:<br>  
-          MESAS: ${nombreMesa}<br>
-           Precio: ${precioMesa}€<br>
-          Cantidad: ${document.querySelector("input[id='nummesas']").value}<br>
+          Product:<br>  
+          TABLES: ${tableName}<br>
+           Price: ${tablePrice}€<br>
+          Quantity: ${document.querySelector("input[id='tablesnumber']").value}<br>
           Total: ${
-              precioMesa * document.querySelector("input[id='nummesas']").value
+              tablePrice * document.querySelector("input[id='tablesnumber']").value
           }€
         </p> `;
 
         let obj = {
-            cliente: document.querySelector("select[name='cliente']").value,
-            factura: document.querySelector("input[id='numfac']").value,
+            client: document.querySelector("select[name='client']").value,
+            invoice: document.querySelector("input[id='invoicenumber']").value,
 
-            nombreMesa,
-            precioMesa,
-            cantidadMesas: document.querySelector("input[id='nummesas']").value,
+            tableName,
+            tablePrice,
+            tableQuantity: document.querySelector("input[id='tablesnumber']").value,
 
             Total:
-                precioMesa *
-                document.querySelector("input[id='nummesas']").value,
+                tablePrice *
+                document.querySelector("input[id='tablesnumber']").value,
         };
-        carrito.push(obj);
-        console.log(carrito);
+        cart.push(obj);
+        console.log(cart);
     });
 
-//CARTAS
+//CARDS
 
 document
-    .querySelector("body .añadircarta")
+    .querySelector("body .addcard")
     .addEventListener("click", function (event) {
         event.preventDefault();
 
-        //SELECCION DE CARTAS
+        //CARD SELECTION
 
-        let selectCarta = document
-            .querySelector("select[name='cartas']")
+        let selectCard = document
+            .querySelector("select[name='cards']")
             .value.split("--");
-        let precioCarta = selectCarta[0];
-        let nombreCarta = selectCarta[1];
+        let cardPrice = selectCard[0];
+        let cardName = selectCard[1];
 
-        //CREACION DE LA FACTURA
+        //INVOICE CREATION
 
         document.querySelector("#pedido div").innerHTML += `<p>
-      Producto:<br>  
-      CARTAS: ${nombreCarta}<br> 
-      Precio: ${precioCarta}€<br> 
-      Cantidad:  ${document.querySelector("input[id='numcartas']").value}<br>
+      Product:<br>  
+      CARDS: ${cardName}<br> 
+      Price: ${cardPrice}€<br> 
+      Quantity:  ${document.querySelector("input[id='cardsnumber']").value}<br>
       Total: ${
-          precioCarta * document.querySelector("input[id='numcartas']").value
+          cardPrice * document.querySelector("input[id='cardsnumber']").value
       }€
     </p> `;
 
         let obj = {
-            cliente: document.querySelector("select[name='cliente']").value,
-            factura: document.querySelector("input[id='numfac']").value,
-            nombreCarta,
-            precioCarta,
-            cantidadCartas: document.querySelector("input[id='numcartas']")
+            client: document.querySelector("select[name='client']").value,
+            invoice: document.querySelector("input[id='invoicenumber']").value,
+            cardName,
+            cardPrice,
+            cardQuantity: document.querySelector("input[id='cardsnumber']")
                 .value,
 
             Total:
-                precioCarta *
-                document.querySelector("input[id='numcartas']").value,
+                cardPrice *
+                document.querySelector("input[id='cardsnumber']").value,
         };
-        carrito.push(obj);
-        console.log(carrito);
+        cart.push(obj);
+        console.log(cart);
     });
 document
-    .querySelector("body .anadirpedido")
+    .querySelector("body .addorder")
     .addEventListener("click", function (event) {
         event.preventDefault();
 
-        let body = JSON.stringify(carrito);
-
-        fetch("/ventas/venta", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: body,
-        })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (res) {
-                alert("Tu pedido se ha añadido correctamente");
-            })
-            .then(function imprimirElemento(elemento) {
-                var ventana = window.open("", "PRINT", "height=400,width=600");
-                let imprimir = document.querySelector("#pedido");
-                ventana.document.write(
-                    "<html><head><title>" + document.title + "</title>"
-                );
-                ventana.document.write(
-                    '<link rel="stylesheet" href="imprimir.css">'
-                ); //Cargamos otra hoja, no la normal
-                ventana.document.write(body);
-                ventana.document.write(imprimir);
-
-                ventana.document.close();
-                ventana.focus();
-                ventana.onload = function () {
-                    ventana.print();
-                    ventana.close();
-                };
-                return true;
-            });
-    });
-document
-    .querySelector("body .anadirpedido")
-    .addEventListener("click", function (event) {
-        event.preventDefault();
-
-        fetch("/clientes/cliente")
+        fetch("/clients/client")
             .then(function (response) {
                 console.log(response);
                 return response.json();
             })
             .then(function (res) {
-                document.querySelector("select[name='cliente2']").innerHTML =
+                document.querySelector("select[name='client2']").innerHTML =
                     "<option selected disabled>Comics</option>";
                 for (let i = 0; i < res.length; i++) {
                     document.querySelector(
-                        "select[name='cliente2']"
-                    ).innerHTML += `<option value="${res[i].telefono}">${res[i].nombre}</option>`;
+                        "select[name='client2']"
+                    ).innerHTML += `<option value="${res[i].phone}">${res[i].name}</option>`;
                 }
             });
     });

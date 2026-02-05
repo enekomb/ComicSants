@@ -1,28 +1,28 @@
-//AÑADIR COMIC
+//ADD COMIC
 document
     .querySelector("#insertarco")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let nombre = document.querySelector("input[name='nombre']").value;
-        let escritor = document.querySelector("input[name='escritor']").value;
-        let editorial = document.querySelector("input[name='editorial']").value;
-        let precio = document.querySelector("input[name='precio']").value;
-        let paginas = document.querySelector("input[name='paginas']").value;
-        let ejemplares = document.querySelector(
+        let name = document.querySelector("input[name='nombre']").value;
+        let author = document.querySelector("input[name='escritor']").value;
+        let publisher = document.querySelector("input[name='editorial']").value;
+        let price = document.querySelector("input[name='precio']").value;
+        let pages = document.querySelector("input[name='paginas']").value;
+        let copies = document.querySelector(
             "input[name='ejemplares']"
         ).value;
-        let genero = document.querySelector("input[name='genero']").value;
+        let genre = document.querySelector("input[name='genero']").value;
         let isbn = document.querySelector("input[name='isbn']").value;
         let img = document.querySelector("input[name='img']").value;
 
         let comic = {
-            nombre: nombre,
-            escritor: escritor,
-            editorial: editorial,
-            precio: precio,
-            paginas: paginas,
-            ejemplares: ejemplares,
-            genero: genero,
+            name: name,
+            author: author,
+            publisher: publisher,
+            price: price,
+            pages: pages,
+            copies: copies,
+            genre: genre,
             isbn: isbn,
             img: img,
         };
@@ -39,36 +39,36 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha añadido correctamente");
+                alert("Added successfully");
             });
     });
-//MODIFICAR COMIC
+//MODIFY COMIC
 document
     .querySelector("#modificarco")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let nombre = document.querySelector("input[name='nombre3']").value;
-        let escritor = document.querySelector("input[name='escritor3']").value;
-        let editorial = document.querySelector(
+        let name = document.querySelector("input[name='nombre3']").value;
+        let author = document.querySelector("input[name='escritor3']").value;
+        let publisher = document.querySelector(
             "input[name='editorial3']"
         ).value;
-        let precio = document.querySelector("input[name='precio3']").value;
-        let paginas = document.querySelector("input[name='paginas3']").value;
-        let ejemplares = document.querySelector(
+        let price = document.querySelector("input[name='precio3']").value;
+        let pages = document.querySelector("input[name='paginas3']").value;
+        let copies = document.querySelector(
             "input[name='ejemplares3']"
         ).value;
-        let genero = document.querySelector("input[name='genero3']").value;
+        let genre = document.querySelector("input[name='genero3']").value;
         let isbn = document.querySelector("input[name='isbn3']").value;
         let img = document.querySelector("input[name='img3']").value;
 
         let comic = {
-            nombre: nombre,
-            escritor: escritor,
-            editorial: editorial,
-            precio: precio,
-            paginas: paginas,
-            ejemplares: ejemplares,
-            genero: genero,
+            name: name,
+            author: author,
+            publisher: publisher,
+            price: price,
+            pages: pages,
+            copies: copies,
+            genre: genre,
             isbn: isbn,
             img: img,
         };
@@ -85,10 +85,10 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha modificado correctamente");
+                alert("Modified successfully");
             });
     });
-//ELIMINAR COMIC
+//DELETE COMIC
 document
     .querySelector("#eliminarco")
     .addEventListener("click", function (event) {
@@ -110,34 +110,34 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha eliminado correctamente");
+                alert("Deleted successfully");
             });
     });
-//INSERTAR CARTAS
+//INSERT CARDS
 document
     .querySelector("#insertarca")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let nombre = document.querySelector("input[name='nombrecar']").value;
-        let precio = document.querySelector("input[name='preciocar']").value;
-        let ejemplares = document.querySelector(
+        let name = document.querySelector("input[name='nombrecar']").value;
+        let price = document.querySelector("input[name='preciocar']").value;
+        let copies = document.querySelector(
             "input[name='ejemplarescar']"
         ).value;
-        let genero = document.querySelector("input[name='generocar']").value;
+        let genre = document.querySelector("input[name='generocar']").value;
         let ean = document.querySelector("input[name='eancar']").value;
         let img = document.querySelector("input[name='imgcar']").value;
 
-        let carta = {
-            nombre: nombre,
-            precio: precio,
-            ejemplares: ejemplares,
-            genero: genero,
+        let card = {
+            name: name,
+            price: price,
+            copies: copies,
+            genre: genre,
             ean: ean,
             img: img,
         };
-        let body = JSON.stringify(carta);
+        let body = JSON.stringify(card);
 
-        fetch("/cartas/carta", {
+        fetch("/cards/card", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -148,34 +148,34 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha añadido correctamente");
+                alert("Added successfully");
             });
     });
-//MODIFICAR CARTAS
+//MODIFY CARDS
 document
     .querySelector("#modificarca")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let nombre = document.querySelector("input[name='nombrecar3']").value;
-        let precio = document.querySelector("input[name='preciocar3']").value;
-        let ejemplares = document.querySelector(
+        let name = document.querySelector("input[name='nombrecar3']").value;
+        let price = document.querySelector("input[name='preciocar3']").value;
+        let copies = document.querySelector(
             "input[name='ejemplarescar']"
         ).value;
-        let genero = document.querySelector("input[name='generocar3']").value;
+        let genre = document.querySelector("input[name='generocar3']").value;
         let ean = document.querySelector("input[name='eancar3']").value;
         let img = document.querySelector("input[name='imgcar3']").value;
 
-        let carta = {
-            nombre: nombre,
-            precio: precio,
-            ejemplares: ejemplares,
-            genero: genero,
+        let card = {
+            name: name,
+            price: price,
+            copies: copies,
+            genre: genre,
             ean: ean,
             img: img,
         };
-        let body = JSON.stringify(carta);
+        let body = JSON.stringify(card);
 
-        fetch("/cartas/carta", {
+        fetch("/cards/card", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -186,22 +186,22 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha modificado correctamente");
+                alert("Modified successfully");
             });
     });
 
-//ELIMINAR CARTA
+//DELETE CARD
 document
     .querySelector("#eliminarca")
     .addEventListener("click", function (event) {
         event.preventDefault();
         let ean = document.querySelector("input[name='eancar2']").value;
-        let carta = {
+        let card = {
             ean: ean,
         };
-        let body = JSON.stringify(carta);
+        let body = JSON.stringify(card);
 
-        fetch("/cartas/carta", {
+        fetch("/cards/card", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -212,34 +212,34 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha eliminado correctamente");
+                alert("Deleted successfully");
             });
     });
-//INSERTAR MESA
+//INSERT TABLE
 document
     .querySelector("#insertarmes")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let nombre = document.querySelector("input[name='nombremes']").value;
-        let precio = document.querySelector("input[name='preciomes']").value;
-        let ejemplares = document.querySelector(
+        let name = document.querySelector("input[name='nombremes']").value;
+        let price = document.querySelector("input[name='preciomes']").value;
+        let copies = document.querySelector(
             "input[name='ejemplarmes']"
         ).value;
-        let genero = document.querySelector("input[name='generomes']").value;
+        let genre = document.querySelector("input[name='generomes']").value;
         let ean = document.querySelector("input[name='eanmes']").value;
         let img = document.querySelector("input[name='imgmes']").value;
 
-        let mesa = {
-            nombre: nombre,
-            precio: precio,
-            ejemplares: ejemplares,
-            genero: genero,
+        let table = {
+            name: name,
+            price: price,
+            copies: copies,
+            genre: genre,
             ean: ean,
             img: img,
         };
-        let body = JSON.stringify(mesa);
+        let body = JSON.stringify(table);
 
-        fetch("/mesas/mesa", {
+        fetch("/tables/table", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -250,35 +250,35 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha añadido correctamente");
+                alert("Added successfully");
             });
     });
 
-//MODIFICAR MEESA
+//MODIFY TABLE
 document
     .querySelector("#modificarmes")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let nombre = document.querySelector("input[name='nombremes3']").value;
-        let precio = document.querySelector("input[name='preciomes3']").value;
-        let ejemplares = document.querySelector(
+        let name = document.querySelector("input[name='nombremes3']").value;
+        let price = document.querySelector("input[name='preciomes3']").value;
+        let copies = document.querySelector(
             "input[name='ejemplarmes3']"
         ).value;
-        let genero = document.querySelector("input[name='generomes3']").value;
+        let genre = document.querySelector("input[name='generomes3']").value;
         let ean = document.querySelector("input[name='eanmes3']").value;
         let img = document.querySelector("input[name='imgmes3']").value;
 
-        let mesa = {
-            nombre: nombre,
-            precio: precio,
-            ejemplares: ejemplares,
-            genero: genero,
+        let table = {
+            name: name,
+            price: price,
+            copies: copies,
+            genre: genre,
             ean: ean,
             img: img,
         };
-        let body = JSON.stringify(mesa);
+        let body = JSON.stringify(table);
 
-        fetch("/mesas/mesa", {
+        fetch("/tables/table", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -289,21 +289,21 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha modificado correctamente");
+                alert("Modified successfully");
             });
     });
-//ELIMINAR MESA
+//DELETE TABLE
 document
     .querySelector("#eliminarmes")
     .addEventListener("click", function (event) {
         event.preventDefault();
         let ean = document.querySelector("input[name='eanmes2']").value;
-        let mesa = {
+        let table = {
             ean: ean,
         };
-        let body = JSON.stringify(mesa);
+        let body = JSON.stringify(table);
 
-        fetch("/mesas/mesa", {
+        fetch("/tables/table", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -314,30 +314,30 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha eliminado correctamente");
+                alert("Deleted successfully");
             });
     });
 
-//INSERTAR SNACK
+//INSERT SNACK
 document
     .querySelector("#insertarsna")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let nombre = document.querySelector("input[name='nombresna']").value;
-        let categoria = document.querySelector(
+        let name = document.querySelector("input[name='nombresna']").value;
+        let category = document.querySelector(
             "input[name='categoriasna']"
         ).value;
-        let ejemplares = document.querySelector(
+        let copies = document.querySelector(
             "input[name='ejemplaressna']"
         ).value;
         let img = document.querySelector("input[name='imgsna']").value;
-        let precio = document.querySelector("input[name='preciosna']").value;
+        let price = document.querySelector("input[name='preciosna']").value;
 
         let snack = {
-            nombre: nombre,
-            precio: precio,
-            ejemplares: ejemplares,
-            categoria: categoria,
+            name: name,
+            price: price,
+            copies: copies,
+            category: category,
             img: img,
         };
         let body = JSON.stringify(snack);
@@ -353,29 +353,29 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha añadido correctamente");
+                alert("Added successfully");
             });
     });
-//MODIFICAR SNACK
+//MODIFY SNACK
 document
     .querySelector("#modificarsna")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let nombre = document.querySelector("input[name='nombresna3']").value;
-        let categoria = document.querySelector(
+        let name = document.querySelector("input[name='nombresna3']").value;
+        let category = document.querySelector(
             "input[name='categoriasna3']"
         ).value;
-        let ejemplares = document.querySelector(
+        let copies = document.querySelector(
             "input[name='ejemplaressna3']"
         ).value;
         let img = document.querySelector("input[name='imgsna3']").value;
-        let precio = document.querySelector("input[name='preciosna3']").value;
+        let price = document.querySelector("input[name='preciosna3']").value;
 
         let snack = {
-            nombre: nombre,
-            precio: precio,
-            ejemplares: ejemplares,
-            categoria: categoria,
+            name: name,
+            price: price,
+            copies: copies,
+            category: category,
             img: img,
         };
         let body = JSON.stringify(snack);
@@ -391,17 +391,17 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha modificado correctamente");
+                alert("Modified successfully");
             });
     });
-//ELIMINAR SNACK
+//DELETE SNACK
 document
     .querySelector("#eliminarsna")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let nombre = document.querySelector("input[name='nombresna2']").value;
+        let name = document.querySelector("input[name='nombresna2']").value;
         let snack = {
-            nombre: nombre,
+            name: name,
         };
         let body = JSON.stringify(snack);
 
@@ -416,6 +416,6 @@ document
                 return response.json();
             })
             .then(function (res) {
-                alert("Se ha eliminado correctamente");
+                alert("Deleted successfully");
             });
     });

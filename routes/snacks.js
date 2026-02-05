@@ -5,12 +5,12 @@ router.get("/", function (request, response) {
     let db = request.app.locals.db;
     db.collection("snacks")
         .find()
-        .toArray(function (err, datos) {
+        .toArray(function (err, data) {
             if (err != undefined) {
                 console.log(err);
-                response.send({ mensaje: "error: " + err });
+                response.send({ message: "error: " + err });
             } else {
-                response.send(datos);
+                response.send(data);
             }
         });
 });
@@ -19,13 +19,13 @@ router.put("/", function (request, response) {
     let db = request.app.locals.db;
 
     db.collection("snacks").updateMany(
-        { nombre: request.body.nombre },
+        { name: request.body.name },
         {
             $set: {
-                nombre: request.body.nombre,
-                precio: request.body.precio,
-                ejemplares: request.body.ejemplares,
-                genero: request.body.genero,
+                name: request.body.name,
+                price: request.body.price,
+                copies: request.body.copies,
+                genre: request.body.genre,
                 img: request.body.img,
             },
         }
@@ -36,7 +36,7 @@ router.put("/", function (request, response) {
 
 router.delete("/", function (request, res) {
     let db = request.app.locals.db;
-    db.collection("snacks").deleteOne({ nombre: request.body.nombre });
+    db.collection("snacks").deleteOne({ name: request.body.name });
     res.send({});
 });
 

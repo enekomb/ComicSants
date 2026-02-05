@@ -2,13 +2,13 @@ const express = require("express");
 const mongodb = require("mongodb");
 // const bcrypt = require("bcrypt");
 
-let cartas = require("./routes/cartas");
-let clientes = require("./routes/clientes");
-let mesas = require("./routes/mesas");
+let cards = require("./routes/cards");
+let clients = require("./routes/clients");
+let tables = require("./routes/tables");
 let snacks = require("./routes/snacks");
-let productos = require("./routes/productos");
+let products = require("./routes/products");
 let comics = require("./routes/comics");
-let ventas = require("./routes/ventas");
+let sales = require("./routes/sales");
 
 let admins = require("./routes/admins");
 
@@ -39,10 +39,10 @@ app.use("/", express.static("public"));
 // app.use("/ventas", express.static("public/ventas/ventas.html"));
 
 app.use("/admins/admin", admins);
-app.use("/clientes/cliente", clientes);
-app.use("/cartas/carta", cartas);
-app.use("/mesas/mesa", mesas);
+app.use("/clients/client", clients);
+app.use("/cards/card", cards);
+app.use("/tables/table", tables);
 app.use("/snacks/snack", snacks);
-app.use("/productos/producto", productos);
+app.use("/products/product", products);
 app.use("/comics/comic", comics);
-app.use("/ventas/venta", ventas);
+app.use("/sales/sale", sales);

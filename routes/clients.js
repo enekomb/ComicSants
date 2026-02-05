@@ -3,38 +3,38 @@ const router = express.Router();
 
 router.get("/", function (request, response) {
     let db = request.app.locals.db;
-    db.collection("clientes")
+    db.collection("clients")
         .find()
-        .toArray(function (err, datos) {
+        .toArray(function (err, data) {
             if (err != undefined) {
                 console.log(err);
-                response.send({ mensaje: "error: " + err });
+                response.send({ message: "error: " + err });
             } else {
-                response.send(datos);
+                response.send(data);
             }
         });
 });
 
 router.post("/", function (request, response) {
     let db = request.app.locals.db;
-    db.collection("clientes").insertOne(request.body);
+    db.collection("clients").insertOne(request.body);
     response.send({});
 });
 
 router.put("/", function (request, response) {
     let db = request.app.locals.db;
 
-    db.collection("clientes").updateMany(
+    db.collection("clients").updateMany(
         { dni: request.body.dni },
         {
             $set: {
                 dni: request.body.dni,
-                nombre: request.body.nombre,
-                apellido: request.body.apellido,
-                cp: request.body.cp,
-                direccion: request.body.direccion,
-                correo: request.body.correo,
-                telefono: request.body.telefono,
+                name: request.body.name,
+                surname: request.body.surname,
+                postalCode: request.body.postalCode,
+                address: request.body.address,
+                email: request.body.email,
+                phone: request.body.phone,
             },
         }
     );
@@ -44,7 +44,7 @@ router.put("/", function (request, response) {
 
 router.delete("/", function (request, res) {
     let db = request.app.locals.db;
-    db.collection("clientes").deleteOne({ dni: request.body.dni });
+    db.collection("clients").deleteOne({ dni: request.body.dni });
     res.send({});
 });
 module.exports = router;

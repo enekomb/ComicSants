@@ -1,4 +1,4 @@
-fetch("/ventas/venta/arraysnac/")
+fetch("/sales/sale/arraysnac/")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -13,8 +13,8 @@ fetch("/ventas/venta/arraysnac/")
             data.addColumn("number", "Cantidades vendidas");
 
             for (let i = 0; i < res.length; i++) {
-                let cantidad = parseInt(`${res[i].cantidad}`);
-                data.addRows([[`${res[i].nombre}`, { v: cantidad }]]);
+                let cantidad = parseInt(`${res[i].quantity}`);
+                data.addRows([[`${res[i].name}`, { v: cantidad }]]);
 
                 var table = new google.visualization.Table(
                     document.getElementById("table_div2")
@@ -29,7 +29,7 @@ fetch("/ventas/venta/arraysnac/")
         }
     });
 
-fetch("/ventas/venta/arraysnac/")
+fetch("/sales/sale/arraysnac/")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -44,8 +44,8 @@ fetch("/ventas/venta/arraysnac/")
             data.addColumn("number", "Cantidades vendidas");
 
             for (let i = 0; i < res.length; i++) {
-                let cantidad = parseInt(`${res[i].cantidad}`);
-                data.addRows([[`${res[i].nombre}`, { v: cantidad }]]);
+                let cantidad = parseInt(`${res[i].quantity}`);
+                data.addRows([[`${res[i].name}`, { v: cantidad }]]);
 
                 var table = new google.visualization.Table(
                     document.getElementById("table_div2")
@@ -60,7 +60,7 @@ fetch("/ventas/venta/arraysnac/")
         }
     });
 
-fetch("/ventas/venta/arraycomic/")
+fetch("/sales/sale/arraycomic/")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -75,8 +75,8 @@ fetch("/ventas/venta/arraycomic/")
             data.addColumn("number", "Cantidades vendidas");
 
             for (let i = 0; i < res.length; i++) {
-                let cantidad = parseInt(`${res[i].cantidad}`);
-                data.addRows([[`${res[i].nombre}`, { v: cantidad }]]);
+                let cantidad = parseInt(`${res[i].quantity}`);
+                data.addRows([[`${res[i].name}`, { v: cantidad }]]);
 
                 var table = new google.visualization.Table(
                     document.getElementById("table_div3")
@@ -91,7 +91,7 @@ fetch("/ventas/venta/arraycomic/")
         }
     });
 
-fetch("/ventas/venta/arraymesa/")
+fetch("/sales/sale/arraymesa/")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -106,8 +106,8 @@ fetch("/ventas/venta/arraymesa/")
             data.addColumn("number", "Cantidades vendidas");
 
             for (let i = 0; i < res.length; i++) {
-                let cantidad = parseInt(`${res[i].cantidad}`);
-                data.addRows([[`${res[i].nombre}`, { v: cantidad }]]);
+                let cantidad = parseInt(`${res[i].quantity}`);
+                data.addRows([[`${res[i].name}`, { v: cantidad }]]);
 
                 var table = new google.visualization.Table(
                     document.getElementById("table_div4")
@@ -122,7 +122,7 @@ fetch("/ventas/venta/arraymesa/")
         }
     });
 
-fetch("/ventas/venta/arraycartas/")
+fetch("/sales/sale/arraycartas/")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -137,8 +137,8 @@ fetch("/ventas/venta/arraycartas/")
             data.addColumn("number", "Cantidades vendidas");
 
             for (let i = 0; i < res.length; i++) {
-                let cantidad = parseInt(`${res[i].cantidad}`);
-                data.addRows([[`${res[i].nombre}`, { v: cantidad }]]);
+                let cantidad = parseInt(`${res[i].quantity}`);
+                data.addRows([[`${res[i].name}`, { v: cantidad }]]);
 
                 var table = new google.visualization.Table(
                     document.getElementById("table_div5")
@@ -153,7 +153,7 @@ fetch("/ventas/venta/arraycartas/")
         }
     });
 
-fetch("/ventas/venta/arraysnac/")
+fetch("/sales/sale/arraysnac/")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -167,14 +167,14 @@ fetch("/ventas/venta/arraysnac/")
             let array = [["Producto", "Cantidad"]];
 
             for (let i = 0; i < res.length; i++) {
-                let subArray = [res[i].nombre, parseInt(res[i].cantidad)];
+                let subArray = [res[i].name, parseInt(res[i].quantity)];
                 array.push(subArray);
             }
 
             var data = google.visualization.arrayToDataTable(array);
 
             var options = {
-                title: "Ventas de snacks",
+                title: "Snack sales",
             };
 
             var chart = new google.visualization.PieChart(
@@ -184,13 +184,13 @@ fetch("/ventas/venta/arraysnac/")
             chart.draw(data, {
                 width: 900,
                 height: 300,
-                title: "VENTAS DE SNACKS",
+                title: "SNACK SALES",
                 is3D: true,
             });
         }
     });
 
-fetch("/ventas/venta/arraymesa/")
+fetch("/sales/sale/arraymesa/")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -204,14 +204,14 @@ fetch("/ventas/venta/arraymesa/")
             let array = [["Producto", "Cantidad"]];
 
             for (let i = 0; i < res.length; i++) {
-                let subArray = [res[i].nombre, parseInt(res[i].cantidad)];
+                let subArray = [res[i].name, parseInt(res[i].quantity)];
                 array.push(subArray);
             }
 
             var data = google.visualization.arrayToDataTable(array);
 
             var options = {
-                title: "Ventas de snacks",
+                title: "Snack sales",
             };
 
             var chart = new google.visualization.PieChart(
@@ -221,13 +221,13 @@ fetch("/ventas/venta/arraymesa/")
             chart.draw(data, {
                 width: 900,
                 height: 300,
-                title: "VENTAS DE JUEGOS DE MESA",
+                title: "BOARD GAME SALES",
                 is3D: true,
             });
         }
     });
 
-fetch("/ventas/venta/arraycartas/")
+fetch("/sales/sale/arraycartas/")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -241,14 +241,14 @@ fetch("/ventas/venta/arraycartas/")
             let array = [["Producto", "Cantidad"]];
 
             for (let i = 0; i < res.length; i++) {
-                let subArray = [res[i].nombre, parseInt(res[i].cantidad)];
+                let subArray = [res[i].name, parseInt(res[i].quantity)];
                 array.push(subArray);
             }
 
             var data = google.visualization.arrayToDataTable(array);
 
             var options = {
-                title: "Ventas de snacks",
+                title: "Snack sales",
             };
 
             var chart = new google.visualization.PieChart(
@@ -258,13 +258,13 @@ fetch("/ventas/venta/arraycartas/")
             chart.draw(data, {
                 width: 900,
                 height: 300,
-                title: "VENTAS DE CARTAS",
+                title: "CARD SALES",
                 is3D: true,
             });
         }
     });
 
-fetch("/ventas/venta/arraycomic/")
+fetch("/sales/sale/arraycomic/")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -278,14 +278,14 @@ fetch("/ventas/venta/arraycomic/")
             let array = [["Producto", "Cantidad"]];
 
             for (let i = 0; i < res.length; i++) {
-                let subArray = [res[i].nombre, parseInt(res[i].cantidad)];
+                let subArray = [res[i].name, parseInt(res[i].quantity)];
                 array.push(subArray);
             }
 
             var data = google.visualization.arrayToDataTable(array);
 
             var options = {
-                title: "Ventas de comics",
+                title: "Comic sales",
             };
 
             var chart = new google.visualization.PieChart(
@@ -295,7 +295,7 @@ fetch("/ventas/venta/arraycomic/")
             chart.draw(data, {
                 width: 900,
                 height: 300,
-                title: "VENTAS DE COMICS",
+                title: "COMIC SALES",
                 is3D: true,
             });
         }

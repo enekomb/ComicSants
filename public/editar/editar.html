@@ -10,77 +10,77 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Changa:wght@800&family=Domine:wght@700&display=swap" rel="stylesheet">
-    <title>Gestion</title>
+    <title>Management</title>
 </head>
 
 <body>
     <nav>
         <a href="http://localhost:3000/home/home.html">Home</a>
-        <a href="http://localhost:3000/editar/editar.html">Gestión</a>
-        <a href="http://localhost:3000/stock/stock.html">Catálogo</a>
-        <a href="http://localhost:3000/ventas/ventas.html">Ventas</a>
-        <a href="http://localhost:3000/informes/informes.html">Informes</a>
+        <a href="http://localhost:3000/editar/editar.html">Management</a>
+        <a href="http://localhost:3000/stock/stock.html">Catalog</a>
+        <a href="http://localhost:3000/ventas/ventas.html">Sales</a>
+        <a href="http://localhost:3000/informes/informes.html">Reports</a>
         <div class="animation start-gestion"></div>
     </nav>
-    <h2 class="neon" >GESTION DE CLIENTES</h2>
+    <h2 class="neon" >CLIENT MANAGEMENT</h2>
     <div class="tarjetas">
         <div class="registrar">
             <form>
-                <h5>Registrar usuario</h5>
-                <input class="controls" type="text" name="nombrec" placeholder="Nombre" />
-                <input class="controls" type="text" name="apellido" placeholder="Apellido" />
+                <h5>Register user</h5>
+                <input class="controls" type="text" name="name" placeholder="Name" />
+                <input class="controls" type="text" name="surname" placeholder="Surname" />
                 <input class="controls" type="text" name="dni" placeholder="DNI" />
-                <input class="controls" type="number"     min="1" name="cp" placeholder="Código postal" />
-                <input class="controls" type="text" name="direccion" placeholder="Dirección" />
-                <input class="controls" type="text" name="correo" placeholder="Correo electronico" />
-                <input class="controls" type="number" name="telefono" placeholder="Teléfono" />
-                <button  id="post" class="buttons">Registrar</button>
+                <input class="controls" type="number"     min="1" name="postalcode" placeholder="Postal code" />
+                <input class="controls" type="text" name="address" placeholder="Address" />
+                <input class="controls" type="text" name="email" placeholder="Email" />
+                <input class="controls" type="number" name="phone" placeholder="Phone" />
+                <button  id="post" class="buttons">Register</button>
             </form>
         </div>
         <div class="registrar">
             <form>
-                <h5>Modificar usuario</h5>
+                <h5>Modify user</h5>
                 <label class="custom-select" for="styledSelect1">
                     <select id="dni" name="mdni"><option selected disabled>DNI</option></select>
                 </label>
-                <input class="controls" type="text" name="nombrem" placeholder="Nombre" />
-                <input class="controls" type="text" name="apellido" placeholder="Apellido" />
-                <input class="controls" type="number"     min="1" name="cp" placeholder="Código postal" />
-                <input class="controls" type="text" name="direccion" placeholder="Direccion" />
-                <input class="controls" type="text" name="correo" placeholder="Correo electronico" />
-                <input class="controls" type="number" name="telefono" placeholder="Telèfono" />
-                <button id="put" class="buttons">Modificar</button>
+                <input class="controls" type="text" name="name" placeholder="Name" />
+                <input class="controls" type="text" name="surname" placeholder="Surname" />
+                <input class="controls" type="number"     min="1" name="postalcode" placeholder="Postal code" />
+                <input class="controls" type="text" name="address" placeholder="Address" />
+                <input class="controls" type="text" name="email" placeholder="Email" />
+                <input class="controls" type="number" name="phone" placeholder="Phone" />
+                <button id="put" class="buttons">Modify</button>
             </form>
         </div>
         <div class="registrar">
             <form>
-                <h5>Eliminar usuario</h5>
+                <h5>Delete user</h5>
                 <label class="custom-select" for="styledSelect1">
                     <select id="edni" name="ddni"> <option selected disabled>DNI</option></select>
                 </label>
-                <button id="delete" class="buttons">Eliminar</button>
+                <button id="delete" class="buttons">Delete</button>
             </form>
         </div>
     </div>
 
 
-    <h2 class="neon">AÑADIR PRODUCTOS</h2>
+    <h2 class="neon">ADD PRODUCTS</h2>
     <div class="tarjetas">
         <div class="productos" class="insert-comic">
             <form>
-                <h5>Gestion de comics</h5>
+                <h5>Comic management</h5>
                 <input class="controls" type="text" name="isbn" placeholder="ISBN" />
-                <input class="controls" type="text" name="nombre" placeholder="Nombre" />
-                <input class="controls" type="text" name="autor" placeholder="Autor" />
-                <input class="controls" type="text" name="editorial" placeholder="Editorial" />
-                <input class="controls" type="text" name="precio" placeholder="Precio" />
-                <input class="controls" type="text" name="paginas" placeholder="Paginas" />
-                <input class="controls" type="text" name="ejemplares" placeholder="Ejemplares" />
-                <input class="controls" type="text" name="genero" placeholder="Genero" />
-                <input class="controls" type="text" name="img" placeholder="Url de la imagen" />
-                <button class="hola" id="insertarco">Añadir</button>
+                <input class="controls" type="text" name="name" placeholder="Name" />
+                <input class="controls" type="text" name="author" placeholder="Author" />
+                <input class="controls" type="text" name="publisher" placeholder="Publisher" />
+                <input class="controls" type="text" name="price" placeholder="Price" />
+                <input class="controls" type="text" name="pages" placeholder="Pages" />
+                <input class="controls" type="text" name="copies" placeholder="Copies" />
+                <input class="controls" type="text" name="genre" placeholder="Genre" />
+                <input class="controls" type="text" name="img" placeholder="Image URL" />
+                <button class="hola" id="insertarco">Add</button>
 
-                <!-- <button class="hola" id="eliminarco">Eliminar</button> -->
+                <!-- <button class="hola" id="eliminarco">Delete</button> -->
             </form>
         </div>
 
@@ -88,32 +88,32 @@
 
         <div class="productos" class="insert-cartas">
             <form>
-                <h5>Gestion de cartas</h5>
+                <h5>Card management</h5>
                 <input class="controls" type="text" name="eancar" placeholder="EAN" />
-                <input class="controls" type="text" name="nombrecar" placeholder="Nombre" />
-                <input class="controls" type="text" name="preciocar" placeholder="Precio" />
-                <input class="controls" type="text" name="ejemplarescar" placeholder="Ejemplares" />
-                <input class="controls" type="text" name="generocar" placeholder="Genero" />
-                <input  class="controls"type="text" name="imgcar" placeholder="Url de la imagen" />
-                <button class="hola" id="insertarca">Añadir</button>
-                <!-- <button class="hola" id="modificarca">Modificar</button> -->
-                <!-- <button class="hola" id="eliminarca">Eliminar</button> -->
+                <input class="controls" type="text" name="namecar" placeholder="Name" />
+                <input class="controls" type="text" name="pricecar" placeholder="Price" />
+                <input class="controls" type="text" name="copiescar" placeholder="Copies" />
+                <input class="controls" type="text" name="genrecar" placeholder="Genre" />
+                <input  class="controls"type="text" name="imgcar" placeholder="Image URL" />
+                <button class="hola" id="insertarca">Add</button>
+                <!-- <button class="hola" id="modificarca">Modify</button> -->
+                <!-- <button class="hola" id="eliminarca">Delete</button> -->
         </div>
         </form>
 
 
         <div class="productos" class="insert-mesas">
             <form>
-                <h5>Gestion de juegos de mesa</h5>
+                <h5>Board game management</h5>
                 <input class="controls" type="text" name="eanmes" placeholder="EAN" />
-                <input class="controls" type="text" name="nombremes" placeholder="Nombre" />
-                <input class="controls" type="text" name="preciomes" placeholder="Precio" />
-                <input class="controls" type="text" name="ejemplarmes" placeholder="Ejemplares" />
-                <input class="controls" type="text" name="generomes" placeholder="Genero" />
-                <input class="controls" type="text" name="imgmes" placeholder="Url de la imagen" />
-                <button class="hola" id="insertarmes">Añadir</button>
-                <!-- <button class="hola" id="modificarmes">Modificar</button> -->
-                <!-- <button class="hola" id="eliminarmes">Eliminar</button> -->
+                <input class="controls" type="text" name="namemes" placeholder="Name" />
+                <input class="controls" type="text" name="pricemes" placeholder="Price" />
+                <input class="controls" type="text" name="copiesmes" placeholder="Copies" />
+                <input class="controls" type="text" name="genremes" placeholder="Genre" />
+                <input class="controls" type="text" name="imgmes" placeholder="Image URL" />
+                <button class="hola" id="insertarmes">Add</button>
+                <!-- <button class="hola" id="modificarmes">Modify</button> -->
+                <!-- <button class="hola" id="eliminarmes">Delete</button> -->
 
         </div>
         </form>
@@ -121,15 +121,15 @@
         <div class="productos" class="insert-snacks">
             <form>
 
-                <h5>Gestion de snacks</h5>
-                <input class="controls" type="text" name="nombresna" placeholder="Nombre" />
-                <input class="controls" type="text" name="categoriasna" placeholder="Categoria" />
-                <input class="controls" type="text" name="preciosna" placeholder="Precio" />
-                <input class="controls" type="text" name="ejemplaressna" placeholder="Ejemplares" />
-                <input class="controls" type="text" name="imgsna" placeholder="Url de la imagen" />
-                <button class="hola" id="insertarsna">Añadir</button>
-                <!-- <button class="hola" id="modificarsna">Modificar</button> -->
-                <!-- <button class="hola" id="eliminarsna">Eliminar</button> -->
+                <h5>Snack management</h5>
+                <input class="controls" type="text" name="namesna" placeholder="Name" />
+                <input class="controls" type="text" name="categorysna" placeholder="Category" />
+                <input class="controls" type="text" name="pricesna" placeholder="Price" />
+                <input class="controls" type="text" name="copiessna" placeholder="Copies" />
+                <input class="controls" type="text" name="imgsna" placeholder="Image URL" />
+                <button class="hola" id="insertarsna">Add</button>
+                <!-- <button class="hola" id="modificarsna">Modify</button> -->
+                <!-- <button class="hola" id="eliminarsna">Delete</button> -->
         </div>
         </form>
     </div>
@@ -137,41 +137,41 @@
 
 <div>
 
-    <h2 class="neon" >MODIFICAR PRODUCTOS</h2>
+    <h2 class="neon" >MODIFY PRODUCTS</h2>
     <div class="tarjetas">
 
     <div class="productos" class="insert-comic">
         <form>
-            <h5>Modificar comics</h5>
+            <h5>Modify comics</h5>
             <input class="controls" type="text" name="isbn3" placeholder="ISBN" />
-            <input class="controls" type="text" name="nombre3" placeholder="Nombre" />
-            <input class="controls" type="text" name="autor3" placeholder="Autor" />
-            <input class="controls" type="text" name="editorial3" placeholder="Editorial" />
-            <input class="controls" type="text" name="preciocar3" placeholder="Precio" />
-            <input class="controls" type="text" name="paginas3" placeholder="Paginas" />
-            <input class="controls" type="text" name="ejemplares3" placeholder="Ejemplares" />
-            <input class="controls" type="text" name="genero3" placeholder="Genero" />
-            <input class="controls" type="text" name="img3" placeholder="Url de la imagen" />
+            <input class="controls" type="text" name="name3" placeholder="Name" />
+            <input class="controls" type="text" name="author3" placeholder="Author" />
+            <input class="controls" type="text" name="publisher3" placeholder="Publisher" />
+            <input class="controls" type="text" name="price3" placeholder="Price" />
+            <input class="controls" type="text" name="pages3" placeholder="Pages" />
+            <input class="controls" type="text" name="copies3" placeholder="Copies" />
+            <input class="controls" type="text" name="genre3" placeholder="Genre" />
+            <input class="controls" type="text" name="img3" placeholder="Image URL" />
 
-            <button class="hola" id="modificarco">Modificar</button>
+            <button class="hola" id="modificarco">Modify</button>
 
-            <!-- <button class="hola" id="eliminarco">Eliminar</button> -->
+            <!-- <button class="hola" id="eliminarco">Delete</button> -->
         </form>
     </div>
 
 
     <div class="productos" class="insert-cartas">
         <form>
-            <h5>Modificar cartas</h5>
+            <h5>Modify cards</h5>
             <input class="controls" type="text" name="eancar3" placeholder="EAN" />
-            <input class="controls" type="text" name="nombrecar3" placeholder="Nombre" />
-            <input class="controls" type="text" name="preciocar3" placeholder="Precio" />
-            <input class="controls" type="text" name="ejemplarescar3" placeholder="Ejemplares" />
-            <input class="controls" type="text" name="generocar3" placeholder="Genero" />
-            <input  class="controls"type="text" name="imgcar3" placeholder="Url de la imagen" />
+            <input class="controls" type="text" name="namecar3" placeholder="Name" />
+            <input class="controls" type="text" name="pricecar3" placeholder="Price" />
+            <input class="controls" type="text" name="copiescar3" placeholder="Copies" />
+            <input class="controls" type="text" name="genrecar3" placeholder="Genre" />
+            <input  class="controls"type="text" name="imgcar3" placeholder="Image URL" />
 
-            <button class="hola" id="modificarca">Modificar</button>
-            <!-- <button class="hola" id="eliminarca">Eliminar</button> -->
+            <button class="hola" id="modificarca">Modify</button>
+            <!-- <button class="hola" id="eliminarca">Delete</button> -->
     </div>
     </form>
 
@@ -182,16 +182,16 @@
 
     <div class="productos" class="insert-mesas">
         <form>
-            <h5>Modificar juegos de mesa</h5>
+            <h5>Modify board games</h5>
             <input class="controls" type="text" name="eanmes3" placeholder="EAN" />
-            <input class="controls" type="text" name="nombremes3" placeholder="Nombre" />
-            <input class="controls" type="text" name="preciomes3" placeholder="Precio" />
-            <input class="controls" type="text" name="ejemplarmes3" placeholder="Ejemplares" />
-            <input class="controls" type="text" name="generomes3" placeholder="Genero" />
-            <input class="controls" type="text" name="imgmes3" placeholder="Url de la imagen" />
-            <!-- <button class="hola" id="insertarmes">Añadir</button> -->
-            <button class="hola" id="modificarmes">Modificar</button>
-            <!-- <button class="hola" id="eliminarmes">Eliminar</button> -->
+            <input class="controls" type="text" name="namemes3" placeholder="Name" />
+            <input class="controls" type="text" name="pricemes3" placeholder="Price" />
+            <input class="controls" type="text" name="copiesmes3" placeholder="Copies" />
+            <input class="controls" type="text" name="genremes3" placeholder="Genre" />
+            <input class="controls" type="text" name="imgmes3" placeholder="Image URL" />
+            <!-- <button class="hola" id="insertarmes">Add</button> -->
+            <button class="hola" id="modificarmes">Modify</button>
+            <!-- <button class="hola" id="eliminarmes">Delete</button> -->
 
     </div>
     </form>
@@ -199,15 +199,15 @@
     <div class="productos" class="insert-snacks">
         <form>
 
-            <h5>Modificar snacks</h5>
-            <input class="controls" type="text" name="nombresna3" placeholder="Nombre" />
-            <input class="controls" type="text" name="categoriasna3" placeholder="Categoria" />
-            <input class="controls" type="text" name="preciosna3" placeholder="Precio" />
-            <input class="controls" type="text" name="ejemplaressna3" placeholder="Ejemplares" />
-            <input class="controls" type="text" name="imgsna3" placeholder="Url de la imagen" />
+            <h5>Modify snacks</h5>
+            <input class="controls" type="text" name="namesna3" placeholder="Name" />
+            <input class="controls" type="text" name="categorysna3" placeholder="Category" />
+            <input class="controls" type="text" name="pricesna3" placeholder="Price" />
+            <input class="controls" type="text" name="copiessna3" placeholder="Copies" />
+            <input class="controls" type="text" name="imgsna3" placeholder="Image URL" />
     
-            <button class="hola" id="modificarsna">Modificar</button>
-            <!-- <button class="hola" id="eliminarsna">Eliminar</button> -->
+            <button class="hola" id="modificarsna">Modify</button>
+            <!-- <button class="hola" id="eliminarsna">Delete</button> -->
     </div>
     </form>
 </div>
@@ -225,7 +225,7 @@
 
 
 
-    <h2 class="neon">ELIMINAR PRODUCTOS</h2>
+    <h2 class="neon">DELETE PRODUCTS</h2>
     <div class="tarjetas">
 
 
@@ -233,26 +233,26 @@
 
     <div class="productos" class="insert-cartas">
         <form>
-            <h5>Eliminar cartas</h5>
+            <h5>Delete cards</h5>
             <input class="controls" type="text" name="eancar2" placeholder="EAN" />
-            <button class="hola" id="eliminarca">Eliminar</button>
+            <button class="hola" id="eliminarca">Delete</button>
     </div>
     </form>
 
     <div class="productos" class="insert-comic">
         <form>
-            <h5>Eliminar comics</h5>
+            <h5>Delete comics</h5>
             <input class="controls" type="text" name="isbn2" placeholder="ISBN" />
-            <button class="hola" id="eliminarco">Eliminar</button>
+            <button class="hola" id="eliminarco">Delete</button>
         </form>
     </div>
 
 
     <div class="productos" class="insert-mesas">
         <form>
-            <h5>Eliminar juegos de mesa</h5>
+            <h5>Delete board games</h5>
             <input class="controls" type="text" name="eanmes2" placeholder="EAN" />
-            <button class="hola" id="eliminarmes">Eliminar</button>
+            <button class="hola" id="eliminarmes">Delete</button>
 
     </div>
     </form>
@@ -261,9 +261,9 @@
     <div class="productos" class="insert-snacks">
         <form>
 
-            <h5>Eliminar snacks</h5>
-            <input class="controls" type="text" name="nombresna2" placeholder="Nombre" />
-            <button class="hola" id="eliminarsna">Eliminar</button>
+            <h5>Delete snacks</h5>
+            <input class="controls" type="text" name="namesna2" placeholder="Name" />
+            <button class="hola" id="eliminarsna">Delete</button>
     </div>
 
 </div>
