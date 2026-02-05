@@ -9,7 +9,7 @@ document
         let price = document.querySelector("input[name='precio']").value;
         let pages = document.querySelector("input[name='paginas']").value;
         let copies = document.querySelector(
-            "input[name='ejemplares']"
+            "input[name='copies']"
         ).value;
         let genre = document.querySelector("input[name='genero']").value;
         let isbn = document.querySelector("input[name='isbn']").value;
@@ -55,7 +55,7 @@ document
         let price = document.querySelector("input[name='precio3']").value;
         let pages = document.querySelector("input[name='paginas3']").value;
         let copies = document.querySelector(
-            "input[name='ejemplares3']"
+            "input[name='copies3']"
         ).value;
         let genre = document.querySelector("input[name='genero3']").value;
         let isbn = document.querySelector("input[name='isbn3']").value;
@@ -121,7 +121,7 @@ document
         let name = document.querySelector("input[name='nombrecar']").value;
         let price = document.querySelector("input[name='preciocar']").value;
         let copies = document.querySelector(
-            "input[name='ejemplarescar']"
+            "input[name='copiescar']"
         ).value;
         let genre = document.querySelector("input[name='generocar']").value;
         let ean = document.querySelector("input[name='eancar']").value;
@@ -159,7 +159,7 @@ document
         let name = document.querySelector("input[name='nombrecar3']").value;
         let price = document.querySelector("input[name='preciocar3']").value;
         let copies = document.querySelector(
-            "input[name='ejemplarescar']"
+            "input[name='copiescar']"
         ).value;
         let genre = document.querySelector("input[name='generocar3']").value;
         let ean = document.querySelector("input[name='eancar3']").value;
@@ -328,7 +328,7 @@ document
             "input[name='categoriasna']"
         ).value;
         let copies = document.querySelector(
-            "input[name='ejemplaressna']"
+            "input[name='copiessna']"
         ).value;
         let img = document.querySelector("input[name='imgsna']").value;
         let price = document.querySelector("input[name='preciosna']").value;
@@ -366,7 +366,7 @@ document
             "input[name='categoriasna3']"
         ).value;
         let copies = document.querySelector(
-            "input[name='ejemplaressna3']"
+            "input[name='copiessna3']"
         ).value;
         let img = document.querySelector("input[name='imgsna3']").value;
         let price = document.querySelector("input[name='preciosna3']").value;

@@ -1,7 +1,7 @@
 const express = require("express");
-const mongodb = require("mongodb");
-// const bcrypt = require("bcrypt");
+const { getDatabase } = require("./database/connection");
 
+// Import routes
 let cards = require("./routes/cards");
 let clients = require("./routes/clients");
 let tables = require("./routes/tables");
@@ -9,35 +9,29 @@ let snacks = require("./routes/snacks");
 let products = require("./routes/products");
 let comics = require("./routes/comics");
 let sales = require("./routes/sales");
-
 let admins = require("./routes/admins");
 
+// Initialize Express app
 let app = express();
-app.listen(3000);
 
-let MongoClient = mongodb.MongoClient;
+// Initialize SQLite database
+try {
+    const db = getDatabase();
+    app.locals.db = db;
+    console.log("SQLite database connected successfully");
+} catch (err) {
+    console.error("Failed to connect to database:", err);
+    process.exit(1);
+}
 
-MongoClient.connect(
-    "mongodb+srv://uri:1234@cluster0.ax7aa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    function (err, client) {
-        if (err !== undefined) {
-            console.log("hey", err);
-        } else {
-            app.locals.db = client.db("comicsants");
-        }
-    }
-);
-
+// Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// Static files
 app.use("/", express.static("public"));
-// app.use("/home", express.static("public/home/home.html"));
-// app.use("/atender", express.static("public/atender/atender.html"));
-// app.use("/informes", express.static("public/informes/informes.html"));
-// app.use("/stock", express.static("public/stock/stock.html"));
-// app.use("/ventas", express.static("public/ventas/ventas.html"));
 
+// API Routes
 app.use("/admins/admin", admins);
 app.use("/clients/client", clients);
 app.use("/cards/card", cards);
@@ -46,3 +40,9 @@ app.use("/snacks/snack", snacks);
 app.use("/products/product", products);
 app.use("/comics/comic", comics);
 app.use("/sales/sale", sales);
+
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});

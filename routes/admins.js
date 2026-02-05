@@ -1,52 +1,34 @@
 const express = require("express");
+const bcrypt = require("bcrypt");
 const router = express.Router();
 
-// router.post("/", function (request, response) {
-//     let db = request.app.locals.db;
-//     db.collection("admin")
-//         .find()
-//         .toArray(function (err, data) {
-//             if (err != undefined) {
-//                 console.log(err);
-//                 alert("Incorrect user or password. Please try again.");
-//                 response.send({ message: "error: " + err });
-//             } else {
-//                 // console.log("everything correct");
-//                 response.send({msg: "everything correct"});
-//                 // window.location.href = "http://localhost:3000/home/home.html";
-//             }
-//         });
-// });
-
+// POST - Admin login
 router.post("/", function (request, response) {
-    let db = request.app.locals.db;
-    let username = request.body.user;
-    let userPassword = request.body.password;
+    try {
+        const db = request.app.locals.db;
+        const username = request.body.user;
+        const userPassword = request.body.password;
 
-    db.collection("admin")
-        .find({user: username})
-        .toArray(function (err, userArray) {
-            if (err != undefined) {
-                // console.log(err);
-                response.send({ message: "error: " + err });
-               
+        const stmt = db.prepare('SELECT * FROM admins WHERE username = ?');
+        const userArray = stmt.all(username);
+
+        if (userArray.length > 0) {
+            // Use bcrypt to compare passwords
+            const isPasswordValid = bcrypt.compareSync(userPassword, userArray[0].password);
+            
+            if (isPasswordValid) {
+                response.send({ message: "Logged in successfully" });
             } else {
-                if (userArray.length > 0) {
-                    if (userPassword == userArray[0].password) {
-                        response.send({ message: "Logged in successfully" });
-                
-                    } else {
-                        response.send({ message: "Incorrect password" });
-                    }
-                } else {
-                    response.send({ message: "User does not exist" });
-                }
-                // if()
-                // console.log("everything correct");
-                // response.send({msg: "everything correct"});
-                // // window.location.href = "http://localhost:3000/home/home.html";
+                response.send({ message: "Incorrect password" });
             }
-        });
+        } else {
+            response.send({ message: "User does not exist" });
+        }
+    } catch (err) {
+        console.error(err);
+        response.status(500).send({ message: "Error: " + err.message });
+    }
 });
 
 module.exports = router;
+

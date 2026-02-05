@@ -1,4 +1,4 @@
-fetch("/sales/sale/arraysnac/")
+fetch("/sales/sale/arraysnack")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -9,8 +9,8 @@ fetch("/sales/sale/arraysnac/")
         // console.log(res);
         function drawTable() {
             var data = new google.visualization.DataTable();
-            data.addColumn("string", "Producto");
-            data.addColumn("number", "Cantidades vendidas");
+            data.addColumn("string", "Product");
+            data.addColumn("number", "Quantities sold");
 
             for (let i = 0; i < res.length; i++) {
                 let cantidad = parseInt(`${res[i].quantity}`);
@@ -29,7 +29,7 @@ fetch("/sales/sale/arraysnac/")
         }
     });
 
-fetch("/sales/sale/arraysnac/")
+fetch("/sales/sale/arraysnack")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -40,8 +40,8 @@ fetch("/sales/sale/arraysnac/")
         // console.log(res);
         function drawTable() {
             var data = new google.visualization.DataTable();
-            data.addColumn("string", "Producto");
-            data.addColumn("number", "Cantidades vendidas");
+            data.addColumn("string", "Product");
+            data.addColumn("number", "Quantities sold");
 
             for (let i = 0; i < res.length; i++) {
                 let cantidad = parseInt(`${res[i].quantity}`);
@@ -71,8 +71,8 @@ fetch("/sales/sale/arraycomic/")
         // console.log(res);
         function drawTable() {
             var data = new google.visualization.DataTable();
-            data.addColumn("string", "Producto");
-            data.addColumn("number", "Cantidades vendidas");
+            data.addColumn("string", "Product");
+            data.addColumn("number", "Quantities sold");
 
             for (let i = 0; i < res.length; i++) {
                 let cantidad = parseInt(`${res[i].quantity}`);
@@ -91,7 +91,7 @@ fetch("/sales/sale/arraycomic/")
         }
     });
 
-fetch("/sales/sale/arraymesa/")
+fetch("/sales/sale/arraytable")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -102,8 +102,8 @@ fetch("/sales/sale/arraymesa/")
         // console.log(res);
         function drawTable() {
             var data = new google.visualization.DataTable();
-            data.addColumn("string", "Producto");
-            data.addColumn("number", "Cantidades vendidas");
+            data.addColumn("string", "Product");
+            data.addColumn("number", "Quantities sold");
 
             for (let i = 0; i < res.length; i++) {
                 let cantidad = parseInt(`${res[i].quantity}`);
@@ -122,7 +122,7 @@ fetch("/sales/sale/arraymesa/")
         }
     });
 
-fetch("/sales/sale/arraycartas/")
+fetch("/sales/sale/arraycards")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -133,8 +133,8 @@ fetch("/sales/sale/arraycartas/")
         // console.log(res);
         function drawTable() {
             var data = new google.visualization.DataTable();
-            data.addColumn("string", "Producto");
-            data.addColumn("number", "Cantidades vendidas");
+            data.addColumn("string", "Product");
+            data.addColumn("number", "Quantities sold");
 
             for (let i = 0; i < res.length; i++) {
                 let cantidad = parseInt(`${res[i].quantity}`);
@@ -153,7 +153,7 @@ fetch("/sales/sale/arraycartas/")
         }
     });
 
-fetch("/sales/sale/arraysnac/")
+fetch("/sales/sale/arraysnack")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -164,7 +164,7 @@ fetch("/sales/sale/arraysnac/")
 
         // console.log(res);
         function drawChart() {
-            let array = [["Producto", "Cantidad"]];
+            let array = [["Product", "Cantidad"]];
 
             for (let i = 0; i < res.length; i++) {
                 let subArray = [res[i].name, parseInt(res[i].quantity)];
@@ -190,7 +190,7 @@ fetch("/sales/sale/arraysnac/")
         }
     });
 
-fetch("/sales/sale/arraymesa/")
+fetch("/sales/sale/arraytable")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -201,7 +201,7 @@ fetch("/sales/sale/arraymesa/")
 
         // console.log(res);
         function drawChart() {
-            let array = [["Producto", "Cantidad"]];
+            let array = [["Product", "Cantidad"]];
 
             for (let i = 0; i < res.length; i++) {
                 let subArray = [res[i].name, parseInt(res[i].quantity)];
@@ -211,7 +211,7 @@ fetch("/sales/sale/arraymesa/")
             var data = google.visualization.arrayToDataTable(array);
 
             var options = {
-                title: "Snack sales",
+                title: "Board game sales",
             };
 
             var chart = new google.visualization.PieChart(
@@ -227,7 +227,7 @@ fetch("/sales/sale/arraymesa/")
         }
     });
 
-fetch("/sales/sale/arraycartas/")
+fetch("/sales/sale/arraycards")
     .then(function (response) {
         // console.log(response);
         return response.json();
@@ -238,7 +238,7 @@ fetch("/sales/sale/arraycartas/")
 
         // console.log(res);
         function drawChart() {
-            let array = [["Producto", "Cantidad"]];
+            let array = [["Product", "Cantidad"]];
 
             for (let i = 0; i < res.length; i++) {
                 let subArray = [res[i].name, parseInt(res[i].quantity)];
@@ -248,7 +248,7 @@ fetch("/sales/sale/arraycartas/")
             var data = google.visualization.arrayToDataTable(array);
 
             var options = {
-                title: "Snack sales",
+                title: "Card sales",
             };
 
             var chart = new google.visualization.PieChart(
@@ -275,7 +275,7 @@ fetch("/sales/sale/arraycomic/")
 
         // console.log(res);
         function drawChart() {
-            let array = [["Producto", "Cantidad"]];
+            let array = [["Product", "Cantidad"]];
 
             for (let i = 0; i < res.length; i++) {
                 let subArray = [res[i].name, parseInt(res[i].quantity)];

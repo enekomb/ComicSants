@@ -1371,3 +1371,8 @@ node_modules/yallist/README.md
 node_modules/yallist/yallist.js
 node_modules/
 >>>>>>> b4ae8d4bd925eeec0615e1ad7b25f8c3b4b9cd86
+
+# SQLite Database
+*.db
+*.db-shm
+*.db-wal

@@ -29,9 +29,9 @@ fetch("/cards/card")
         return response.json();
     })
     .then(function (res) {
-        document.querySelector(".cartas-container").innerHTML = "";
+        document.querySelector(".cards-container").innerHTML = "";
         for (let i = 0; i < res.length; i++) {
-            document.querySelector(".cartas-container").innerHTML += `
+            document.querySelector(".cards-container").innerHTML += `
             <div class="card">
             <div class="cardimg">
             <img="${i}"><img src="${res[i].img}"></img>
@@ -50,9 +50,9 @@ fetch("/tables/table")
         return response.json();
     })
     .then(function (res) {
-        document.querySelector(".mesas-container").innerHTML = "";
+        document.querySelector(".tables-container").innerHTML = "";
         for (let i = 0; i < res.length; i++) {
-            document.querySelector(".mesas-container").innerHTML += `
+            document.querySelector(".tables-container").innerHTML += `
             <div class="card">
             <div class="cardimg">
             <img="${i}"><img src="${res[i].img}"></img>

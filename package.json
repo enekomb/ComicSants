@@ -1,27 +1,29 @@
 {
-  "name": "encript",
+  "name": "comicsants",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "init-db": "node scripts/init-db.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["pos", "inventory", "comics", "hobby-store"],
+  "author": "ComicSants Team",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "better-sqlite3": "^12.6.2",
     "express": "^4.17.1",
-    "mongodb": "^4.1.4",
-    "nodemon": "^2.0.15",
-    "yodasay": "^1.1.9"
+    "nodemon": "^2.0.15"
   },
-  "description": "KE TAL?",
+  "description": "ComicSants - A comprehensive internal management application for hobby stores",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uriuriarte/PROYECTO.git"
+    "url": "git+https://github.com/enekomb/ComicSants.git"
   },
   "bugs": {
-    "url": "https://github.com/uriuriarte/PROYECTO/issues"
+    "url": "https://github.com/enekomb/ComicSants/issues"
   },
-  "homepage": "https://github.com/uriuriarte/PROYECTO#readme"
+  "homepage": "https://github.com/enekomb/ComicSants#readme"
 }
