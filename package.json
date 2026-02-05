@@ -16,6 +16,9 @@
   ],
   "author": "ComicSants Team",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "better-sqlite3": "^12.6.2",

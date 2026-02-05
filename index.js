@@ -28,9 +28,26 @@ try {
 
 // Security Middleware
 app.use(helmet({
-    contentSecurityPolicy: false, // Disable CSP to allow inline scripts and Google Charts
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'", "https://www.gstatic.com", "https://www.google.com"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+            fontSrc: ["'self'", "https://fonts.gstatic.com"],
+            imgSrc: ["'self'", "data:", "https:"],
+            connectSrc: ["'self'"]
+        }
+    }
 }));
-app.use(cors());
+
+// Configure CORS - Allow specific origins or default to localhost
+const allowedOrigins = process.env.ALLOWED_ORIGINS 
+    ? process.env.ALLOWED_ORIGINS.split(',') 
+    : ['http://localhost:3000'];
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true
+}));
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
