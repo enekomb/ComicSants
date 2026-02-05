@@ -5,12 +5,12 @@ router.get("/", function (request, response) {
     let db = request.app.locals.db;
     db.collection("comics")
         .find()
-        .toArray(function (err, datos) {
+        .toArray(function (err, data) {
             if (err != undefined) {
                 console.log(err);
-                response.send({ mensaje: "error: " + err });
+                response.send({ message: "error: " + err });
             } else {
-                response.send(datos);
+                response.send(data);
             }
         });
 });
@@ -28,13 +28,13 @@ router.put("/", function (request, response) {
         { isbn: request.body.isbn },
         {
             $set: {
-                nombre: request.body.nombre,
-                autor: request.body.autor,
-                editorial: request.body.editorial,
-                precio: request.body.precio,
-                paginas: request.body.paginas,
-                ejemplares: request.body.ejemplares,
-                genero: request.body.genero,
+                name: request.body.name,
+                author: request.body.author,
+                publisher: request.body.publisher,
+                price: request.body.price,
+                pages: request.body.pages,
+                copies: request.body.copies,
+                genre: request.body.genre,
                 isbn: request.body.isbn,
                 img: request.body.img,
             },
