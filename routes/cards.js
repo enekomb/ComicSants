@@ -1,49 +1,68 @@
 const express = require("express");
 const router = express.Router();
 
+// GET all cards
 router.get("/", function (request, response) {
-    let db = request.app.locals.db;
-    db.collection("cards")
-        .find()
-        .toArray(function (err, data) {
-            if (err != undefined) {
-                console.log(err);
-                response.send({ message: "error: " + err });
-            } else {
-                response.send(data);
-            }
-        });
+    try {
+        const db = request.app.locals.db;
+        const stmt = db.prepare('SELECT * FROM cards');
+        const data = stmt.all();
+        response.send(data);
+    } catch (err) {
+        console.error(err);
+        response.status(500).send({ message: "Error: " + err.message });
+    }
 });
+
+// POST - Create a new card
 router.post("/", function (request, response) {
-    let db = request.app.locals.db;
-    db.collection("cards").insertOne(request.body);
-    response.send({});
+    try {
+        const db = request.app.locals.db;
+        const stmt = db.prepare(`
+            INSERT INTO cards (ean, name, price, copies, genre, img)
+            VALUES (@ean, @name, @price, @copies, @genre, @img)
+        `);
+        stmt.run(request.body);
+        response.send({ success: true });
+    } catch (err) {
+        console.error(err);
+        response.status(500).send({ message: "Error: " + err.message });
+    }
 });
 
+// PUT - Update a card
 router.put("/", function (request, response) {
-    let db = request.app.locals.db;
-
-    db.collection("cards").updateMany(
-        { ean: request.body.ean },
-        {
-            $set: {
-                name: request.body.name,
-                price: request.body.price,
-                copies: request.body.copies,
-                genre: request.body.genre,
-                ean: request.body.ean,
-                img: request.body.img,
-            },
-        }
-    );
-
-    response.send({});
+    try {
+        const db = request.app.locals.db;
+        const stmt = db.prepare(`
+            UPDATE cards 
+            SET name = @name,
+                price = @price,
+                copies = @copies,
+                genre = @genre,
+                img = @img
+            WHERE ean = @ean
+        `);
+        stmt.run(request.body);
+        response.send({ success: true });
+    } catch (err) {
+        console.error(err);
+        response.status(500).send({ message: "Error: " + err.message });
+    }
 });
 
-router.delete("/", function (request, res) {
-    let db = request.app.locals.db;
-    db.collection("cards").deleteOne({ ean: request.body.ean });
-    res.send({});
+// DELETE - Remove a card
+router.delete("/", function (request, response) {
+    try {
+        const db = request.app.locals.db;
+        const stmt = db.prepare('DELETE FROM cards WHERE ean = ?');
+        stmt.run(request.body.ean);
+        response.send({ success: true });
+    } catch (err) {
+        console.error(err);
+        response.status(500).send({ message: "Error: " + err.message });
+    }
 });
 
 module.exports = router;
+

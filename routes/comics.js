@@ -1,53 +1,71 @@
 const express = require("express");
 const router = express.Router();
 
+// GET all comics
 router.get("/", function (request, response) {
-    let db = request.app.locals.db;
-    db.collection("comics")
-        .find()
-        .toArray(function (err, data) {
-            if (err != undefined) {
-                console.log(err);
-                response.send({ message: "error: " + err });
-            } else {
-                response.send(data);
-            }
-        });
+    try {
+        const db = request.app.locals.db;
+        const stmt = db.prepare('SELECT * FROM comics');
+        const data = stmt.all();
+        response.send(data);
+    } catch (err) {
+        console.error(err);
+        response.status(500).send({ message: "Error: " + err.message });
+    }
 });
 
+// POST - Create a new comic
 router.post("/", function (request, response) {
-    let db = request.app.locals.db;
-    db.collection("comics").insertOne(request.body);
-    response.send({});
+    try {
+        const db = request.app.locals.db;
+        const stmt = db.prepare(`
+            INSERT INTO comics (isbn, name, author, publisher, price, pages, copies, genre, img)
+            VALUES (@isbn, @name, @author, @publisher, @price, @pages, @copies, @genre, @img)
+        `);
+        stmt.run(request.body);
+        response.send({ success: true });
+    } catch (err) {
+        console.error(err);
+        response.status(500).send({ message: "Error: " + err.message });
+    }
 });
 
+// PUT - Update a comic
 router.put("/", function (request, response) {
-    let db = request.app.locals.db;
-
-    db.collection("comics").updateMany(
-        { isbn: request.body.isbn },
-        {
-            $set: {
-                name: request.body.name,
-                author: request.body.author,
-                publisher: request.body.publisher,
-                price: request.body.price,
-                pages: request.body.pages,
-                copies: request.body.copies,
-                genre: request.body.genre,
-                isbn: request.body.isbn,
-                img: request.body.img,
-            },
-        }
-    );
-
-    response.send({});
+    try {
+        const db = request.app.locals.db;
+        const stmt = db.prepare(`
+            UPDATE comics 
+            SET name = @name,
+                author = @author,
+                publisher = @publisher,
+                price = @price,
+                pages = @pages,
+                copies = @copies,
+                genre = @genre,
+                img = @img
+            WHERE isbn = @isbn
+        `);
+        stmt.run(request.body);
+        response.send({ success: true });
+    } catch (err) {
+        console.error(err);
+        response.status(500).send({ message: "Error: " + err.message });
+    }
 });
 
-router.delete("/", function (request, res) {
-    let db = request.app.locals.db;
-    db.collection("comics").deleteOne({ isbn: request.body.isbn });
-    res.send({});
+// DELETE - Remove a comic
+router.delete("/", function (request, response) {
+    try {
+        const db = request.app.locals.db;
+        const stmt = db.prepare('DELETE FROM comics WHERE isbn = ?');
+        stmt.run(request.body.isbn);
+        response.send({ success: true });
+    } catch (err) {
+        console.error(err);
+        response.status(500).send({ message: "Error: " + err.message });
+    }
 });
 
 module.exports = router;
+
