@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcrypt");
 const router = express.Router();
 
 // POST - Admin login
@@ -12,7 +13,10 @@ router.post("/", function (request, response) {
         const userArray = stmt.all(username);
 
         if (userArray.length > 0) {
-            if (userPassword === userArray[0].password) {
+            // Use bcrypt to compare passwords
+            const isPasswordValid = bcrypt.compareSync(userPassword, userArray[0].password);
+            
+            if (isPasswordValid) {
                 response.send({ message: "Logged in successfully" });
             } else {
                 response.send({ message: "Incorrect password" });

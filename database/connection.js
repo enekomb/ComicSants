@@ -11,8 +11,10 @@ const SCHEMA_PATH = path.join(__dirname, 'schema.sql');
  * @returns {Database} Database instance
  */
 function initializeDatabase() {
-    // Create or open database
-    const db = new Database(DB_PATH, { verbose: console.log });
+    // Create or open database with verbose logging only in development
+    const db = new Database(DB_PATH, { 
+        verbose: process.env.NODE_ENV === 'development' ? console.log : null 
+    });
     
     // Enable foreign keys
     db.pragma('foreign_keys = ON');
@@ -35,7 +37,9 @@ function getDatabase() {
         return initializeDatabase();
     }
     
-    const db = new Database(DB_PATH, { verbose: console.log });
+    const db = new Database(DB_PATH, { 
+        verbose: process.env.NODE_ENV === 'development' ? console.log : null 
+    });
     db.pragma('foreign_keys = ON');
     
     return db;

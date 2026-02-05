@@ -5,6 +5,7 @@
  */
 
 const { getDatabase } = require('../database/connection');
+const bcrypt = require('bcrypt');
 
 console.log('🔧 ComicSants Database Initialization\n');
 
@@ -22,6 +23,10 @@ if (result.count > 0) {
     process.exit(0);
 }
 
+// Hash password with bcrypt
+const saltRounds = 10;
+const hashedPassword = bcrypt.hashSync('admin123', saltRounds);
+
 // Create default admin user
 const insertStmt = db.prepare(`
     INSERT INTO admins (username, password)
@@ -29,13 +34,14 @@ const insertStmt = db.prepare(`
 `);
 
 try {
-    insertStmt.run('admin', 'admin123');
+    insertStmt.run('admin', hashedPassword);
     
     console.log('✅ Successfully created default admin user!\n');
     console.log('Login credentials:');
     console.log('   Username: admin');
     console.log('   Password: admin123\n');
     console.log('⚠️  IMPORTANT: Change this password after your first login!\n');
+    console.log('ℹ️  Note: Password is securely hashed using bcrypt.\n');
     console.log('You can now start the server with: npm start\n');
 } catch (error) {
     console.error('❌ Error creating admin user:', error.message);
