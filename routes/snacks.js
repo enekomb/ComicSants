@@ -9,7 +9,7 @@ router.get("/", function (request, response) {
         const data = stmt.all();
         response.send(data);
     } catch (err) {
-        console.error(err);
+        console.error("Error fetching snacks:", err);
         response.status(500).send({ message: "Error: " + err.message });
     }
 });
@@ -18,14 +18,25 @@ router.get("/", function (request, response) {
 router.post("/", function (request, response) {
     try {
         const db = request.app.locals.db;
+        
+        // Map 'category' from frontend to 'genre' for database
+        const snackData = {
+            name: request.body.name,
+            price: request.body.price,
+            copies: request.body.copies,
+            genre: request.body.category || request.body.genre, // Support both 'category' and 'genre'
+            img: request.body.img
+        };
+        
         const stmt = db.prepare(`
             INSERT INTO snacks (name, price, copies, genre, img)
             VALUES (@name, @price, @copies, @genre, @img)
         `);
-        stmt.run(request.body);
+        stmt.run(snackData);
         response.send({ success: true });
     } catch (err) {
-        console.error(err);
+        console.error("Error creating snack:", err);
+        console.error("Request body:", request.body);
         response.status(500).send({ message: "Error: " + err.message });
     }
 });
@@ -37,6 +48,16 @@ router.post("/", function (request, response) {
 router.put("/", function (request, response) {
     try {
         const db = request.app.locals.db;
+        
+        // Map 'category' from frontend to 'genre' for database
+        const snackData = {
+            name: request.body.name,
+            price: request.body.price,
+            copies: request.body.copies,
+            genre: request.body.category || request.body.genre, // Support both 'category' and 'genre'
+            img: request.body.img
+        };
+        
         const stmt = db.prepare(`
             UPDATE snacks 
             SET price = @price,
@@ -45,10 +66,11 @@ router.put("/", function (request, response) {
                 img = @img
             WHERE name = @name
         `);
-        stmt.run(request.body);
+        stmt.run(snackData);
         response.send({ success: true });
     } catch (err) {
-        console.error(err);
+        console.error("Error updating snack:", err);
+        console.error("Request body:", request.body);
         response.status(500).send({ message: "Error: " + err.message });
     }
 });
@@ -61,7 +83,8 @@ router.delete("/", function (request, response) {
         stmt.run(request.body.name);
         response.send({ success: true });
     } catch (err) {
-        console.error(err);
+        console.error("Error deleting snack:", err);
+        console.error("Request body:", request.body);
         response.status(500).send({ message: "Error: " + err.message });
     }
 });
