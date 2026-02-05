@@ -13,8 +13,8 @@ fetch("/sales/sale/arraysnac/")
             data.addColumn("number", "Cantidades vendidas");
 
             for (let i = 0; i < res.length; i++) {
-                let cantidad = parseInt(`${res[i].quantity}`);
-                data.addRows([[`${res[i].name}`, { v: cantidad }]]);
+                let quantity = parseInt(`${res[i].quantity}`);
+                data.addRows([[`${res[i].name}`, { v: quantity }]]);
 
                 var table = new google.visualization.Table(
                     document.getElementById("table_div2")
@@ -44,8 +44,8 @@ fetch("/sales/sale/arraysnac/")
             data.addColumn("number", "Cantidades vendidas");
 
             for (let i = 0; i < res.length; i++) {
-                let cantidad = parseInt(`${res[i].quantity}`);
-                data.addRows([[`${res[i].name}`, { v: cantidad }]]);
+                let quantity = parseInt(`${res[i].quantity}`);
+                data.addRows([[`${res[i].name}`, { v: quantity }]]);
 
                 var table = new google.visualization.Table(
                     document.getElementById("table_div2")
@@ -75,8 +75,8 @@ fetch("/sales/sale/arraycomic/")
             data.addColumn("number", "Cantidades vendidas");
 
             for (let i = 0; i < res.length; i++) {
-                let cantidad = parseInt(`${res[i].quantity}`);
-                data.addRows([[`${res[i].name}`, { v: cantidad }]]);
+                let quantity = parseInt(`${res[i].quantity}`);
+                data.addRows([[`${res[i].name}`, { v: quantity }]]);
 
                 var table = new google.visualization.Table(
                     document.getElementById("table_div3")
@@ -106,8 +106,8 @@ fetch("/sales/sale/arraymesa/")
             data.addColumn("number", "Cantidades vendidas");
 
             for (let i = 0; i < res.length; i++) {
-                let cantidad = parseInt(`${res[i].quantity}`);
-                data.addRows([[`${res[i].name}`, { v: cantidad }]]);
+                let quantity = parseInt(`${res[i].quantity}`);
+                data.addRows([[`${res[i].name}`, { v: quantity }]]);
 
                 var table = new google.visualization.Table(
                     document.getElementById("table_div4")
@@ -137,8 +137,8 @@ fetch("/sales/sale/arraycartas/")
             data.addColumn("number", "Cantidades vendidas");
 
             for (let i = 0; i < res.length; i++) {
-                let cantidad = parseInt(`${res[i].quantity}`);
-                data.addRows([[`${res[i].name}`, { v: cantidad }]]);
+                let quantity = parseInt(`${res[i].quantity}`);
+                data.addRows([[`${res[i].name}`, { v: quantity }]]);
 
                 var table = new google.visualization.Table(
                     document.getElementById("table_div5")

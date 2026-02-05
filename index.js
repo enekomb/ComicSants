@@ -33,10 +33,10 @@ app.use(express.json());
 
 app.use("/", express.static("public"));
 // app.use("/home", express.static("public/home/home.html"));
-// app.use("/atender", express.static("public/atender/atender.html"));
-// app.use("/informes", express.static("public/informes/informes.html"));
+// app.use("/serve", express.static("public/serve/serve.html"));
+// app.use("/reports", express.static("public/reports/reports.html"));
 // app.use("/stock", express.static("public/stock/stock.html"));
-// app.use("/ventas", express.static("public/ventas/ventas.html"));
+// app.use("/sales", express.static("public/sales/sales.html"));
 
 app.use("/admins/admin", admins);
 app.use("/clients/client", clients);
