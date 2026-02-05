@@ -36,7 +36,7 @@ router.post("/", function (request, response) {
         response.send({ success: true });
     } catch (err) {
         console.error("Error creating snack:", err);
-        console.error("Request body:", request.body);
+        console.error("Snack data:", { name: request.body.name, category: request.body.category, genre: request.body.genre });
         response.status(500).send({ message: "Error: " + err.message });
     }
 });
@@ -70,7 +70,7 @@ router.put("/", function (request, response) {
         response.send({ success: true });
     } catch (err) {
         console.error("Error updating snack:", err);
-        console.error("Request body:", request.body);
+        console.error("Snack data:", { name: request.body.name, category: request.body.category, genre: request.body.genre });
         response.status(500).send({ message: "Error: " + err.message });
     }
 });
@@ -84,7 +84,7 @@ router.delete("/", function (request, response) {
         response.send({ success: true });
     } catch (err) {
         console.error("Error deleting snack:", err);
-        console.error("Request body:", request.body);
+        console.error("Snack name:", request.body.name);
         response.status(500).send({ message: "Error: " + err.message });
     }
 });
