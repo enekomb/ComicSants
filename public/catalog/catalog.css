@@ -7,7 +7,7 @@
    font-family: 'Domine', serif;
 }
 
-.cartas-container {
+.cards-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -16,7 +16,7 @@
     font-family: 'Domine', serif;
 }
 
-.mesas-container {
+.tables-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
