@@ -26,6 +26,7 @@ Built with Node.js, Express, and SQLite, this application serves as a Point of S
 *   **Frontend:** HTML5, CSS3, JavaScript (Vanilla ES6+), Google Charts API.
 *   **Backend:** Node.js, Express.js.
 *   **Database:** SQLite (better-sqlite3) - Local, file-based database.
+*   **Security:** Helmet (HTTP headers security), CORS (Cross-Origin Resource Sharing), bcrypt (password hashing).
 *   **Tools:** Git, Visual Studio Code.
 
 ## 📸 Preview
@@ -78,6 +79,24 @@ Built with Node.js, Express, and SQLite, this application serves as a Point of S
     *   Login with username: `admin`, password: `admin123`
     *   **Important:** Change the default password after first login!
 
+## 🔐 Environment Variables
+
+The application uses environment variables for configuration. A `.env.example` file is provided with all available options:
+
+```bash
+# Copy the example file to create your own .env
+cp .env.example .env
+```
+
+**Available Environment Variables:**
+- `PORT` - Server port (default: 3000)
+- `NODE_ENV` - Environment mode (development/production)
+- `DB_PATH` - Custom database file location (optional)
+- `SESSION_SECRET` - Session secret for future authentication enhancements
+- `JWT_SECRET` - JWT secret for future token-based authentication
+
+**Note:** The `.env` file is git-ignored for security. Never commit sensitive credentials to version control.
+
 ## 📁 Project Structure
 
 ```
@@ -123,8 +142,12 @@ See `database/schema.sql` for the complete schema definition.
 
 ## 🔒 Security Notes
 
+- **Security Middleware:** The application uses `helmet` and `cors` for enhanced security
+  - Helmet sets secure HTTP headers to protect against common vulnerabilities
+  - CORS is enabled for cross-origin requests (configure in production as needed)
 - Change the default admin password immediately after setup
 - Passwords are securely hashed using bcrypt with 10 salt rounds
+- Environment variables are stored in `.env` (git-ignored) - never commit secrets
 - Set up HTTPS in production environments
 - Regular backups of the SQLite database are recommended
 - Consider implementing session management or JWT for production authentication
