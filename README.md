@@ -63,20 +63,6 @@ Built with Node.js, Express, and SQLite, this application serves as a Point of S
     - **Username**: admin
     - **Password**: admin123 (securely hashed with bcrypt)
     
-    **Alternative manual setup** (for advanced users only):
-    ```bash
-    # Requires sqlite3 CLI tool to be installed
-    # On Ubuntu/Debian: sudo apt install sqlite3
-    # On macOS: brew install sqlite3
-    
-    # Generate bcrypt hash for your password
-    node -e "console.log(require('bcrypt').hashSync('yourpassword', 10))"
-    # Copy the hash, then:
-    sqlite3 database/comicsants.db
-    INSERT INTO admins (username, password) VALUES ('admin', '<paste-hash-here>');
-    .exit
-    ```
-
 4.  **Run the server:**
     ```bash
     npm start
@@ -118,7 +104,6 @@ ComicSants/
 │   └── index.html         # Login page
 ├── index.js               # Main application entry point
 ├── package.json           # Project dependencies
-├── DEPLOYMENT.md          # Deployment guide for free hosting
 └── README.md              # This file
 ```
 
@@ -135,16 +120,6 @@ The application uses SQLite with the following tables:
 - **sales** - Sales transactions and history
 
 See `database/schema.sql` for the complete schema definition.
-
-## 🚢 Deployment
-
-For detailed deployment instructions on free hosting platforms (Railway, Render, etc.), see [DEPLOYMENT.md](./DEPLOYMENT.md).
-
-### Quick Deploy Options:
-
-- **Railway** (Recommended): [See Deployment Guide](./DEPLOYMENT.md#option-1-railway-recommended-for-sqlite)
-- **Render**: [See Deployment Guide](./DEPLOYMENT.md#option-2-render)
-- **Self-Hosted VPS**: [See Deployment Guide](./DEPLOYMENT.md#option-4-self-hosted-vps-digitalocean-linode-aws-ec2)
 
 ## 🔒 Security Notes
 
