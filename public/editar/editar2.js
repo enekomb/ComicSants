@@ -1,6 +1,6 @@
 //SELECT DNI
 
-fetch("/clientes/cliente")
+fetch("/clients/client")
     .then(function (response) {
         console.log(response);
         return response.json();
@@ -13,31 +13,31 @@ fetch("/clientes/cliente")
         
     });
 
-//AÑADIR CLIENTE
+//ADD CLIENT
 document
     .querySelector("#post")
     .addEventListener("click", function (event) {
         event.preventDefault();
-        let nombre = document.querySelector("input[name='nombrec']").value;
-        let apellido = document.querySelector("input[name='apellido']").value;
+        let name = document.querySelector("input[name='nombrec']").value;
+        let surname = document.querySelector("input[name='apellido']").value;
         let dni = document.querySelector("input[name='dni']").value;
-        let cp = document.querySelector("input[name='cp']").value;
-        let direccion = document.querySelector("input[name='direccion']").value;
-        let correo = document.querySelector("input[name='correo']" ).value;
-        let telefono = document.querySelector("input[name='telefono']").value;
+        let postalCode = document.querySelector("input[name='cp']").value;
+        let address = document.querySelector("input[name='direccion']").value;
+        let email = document.querySelector("input[name='correo']" ).value;
+        let phone = document.querySelector("input[name='telefono']").value;
 
-        let cliente = {
-            nombre: nombre,
-            apellido: apellido,
+        let client = {
+            name: name,
+            surname: surname,
             dni: dni,
-            cp: cp,
-            direccion: direccion,
-            correo: correo,
-            telefono: telefono,
+            postalCode: postalCode,
+            address: address,
+            email: email,
+            phone: phone,
         };
-        let body = JSON.stringify(cliente);
+        let body = JSON.stringify(client);
 
-        fetch("/clientes/cliente", {
+        fetch("/clients/client", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -49,32 +49,32 @@ document
             })
             .then(function (res) {});
     });
-//MODIFICAR CLIENTE
+//MODIFY CLIENT
     document
     .querySelector("#put")
     .addEventListener("click", function (event) {
         event.preventDefault();
         let dni = document.querySelector("select[name='mdni']").value;
-        let nombre = document.querySelector("input[name='nombrem']").value;
-        let apellido = document.querySelector("input[name='apellido']").value;
-        let cp = document.querySelector("input[name='cp']").value;
-        let direccion = document.querySelector("input[name='direccion']").value;
-        let correo = document.querySelector("input[name='correo']").value;
-        let telefono = document.querySelector("input[name='telefono']").value;
+        let name = document.querySelector("input[name='nombrem']").value;
+        let surname = document.querySelector("input[name='apellido']").value;
+        let postalCode = document.querySelector("input[name='cp']").value;
+        let address = document.querySelector("input[name='direccion']").value;
+        let email = document.querySelector("input[name='correo']").value;
+        let phone = document.querySelector("input[name='telefono']").value;
       
 
-        let cliente = {
+        let client = {
             dni : dni,
-            nombre: nombre,
-            apellido: apellido,
-            cp: cp,
-            direccion: direccion,
-            correo: correo,
-            telefono: telefono,
+            name: name,
+            surname: surname,
+            postalCode: postalCode,
+            address: address,
+            email: email,
+            phone: phone,
         };
-        let body = JSON.stringify(cliente);
+        let body = JSON.stringify(client);
 
-        fetch("/clientes/cliente", {
+        fetch("/clients/client", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -86,18 +86,18 @@ document
             })
             .then(function (res) {});
     });
-//ELIMINAR CLIENTE
+//DELETE CLIENT
 document
     .querySelector("#delete")
     .addEventListener("click", function (event) {
         event.preventDefault();
         let dni = document.querySelector("select[name='ddni']").value;
-        let cliente = {
+        let client = {
             dni: dni,
         };
-        let body = JSON.stringify(cliente);
+        let body = JSON.stringify(client);
 
-        fetch("/clientes/cliente", {
+        fetch("/clients/client", {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

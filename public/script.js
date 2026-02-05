@@ -3,9 +3,9 @@ document
     .addEventListener("click", function (event) {
         event.preventDefault();
 
-        let usuario = {
-            usuario: document.querySelector("input[name='usuario']").value,
-            contraseña: document.querySelector("input[name='contraseña']").value
+        let user = {
+            user: document.querySelector("input[name='user']").value,
+            password: document.querySelector("input[name='password']").value
         };
 
         fetch("/admins/admin", {
@@ -13,19 +13,19 @@ document
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(usuario),
+            body: JSON.stringify(user),
         })
             .then(function (response) {
                 return response.json();
             })
             .then(function (res) {
                 console.log ("Login: ", res);
-                if(res.mensaje === "Logueado correctamente"){
+                if(res.message === "Logged in successfully"){
                      window.location.href = "http://localhost:3000/home/home.html";
                 } else {
-                    alert(res.mensaje)
+                    alert(res.message)
                 }
                 // 
-                // //AQUI TE TIENE QUE MANDAR A LA HOME;
+                // //HERE IT SHOULD SEND YOU TO HOME;
             });
     });
